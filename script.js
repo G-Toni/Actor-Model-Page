@@ -10,15 +10,20 @@ document.addEventListener("DOMContentLoaded", function () {
     let button = document.createElement("button");
     button.innerText = "🔊 Unmute";
     button.style.position = "absolute";
+    button.style.zIndex = "10";
     button.style.bottom = "20px";
     button.style.left = "20px";
     button.style.padding = "10px 20px";
     button.style.background = "#fff";
     button.style.border = "none";
+    button.style.borderRadius = "5px";
     button.style.cursor = "pointer";
-    
+
     // Append to body
-    document.body.appendChild(button);
+    const hero = document.querySelector('.hero');
+    if (hero) {
+        hero.appendChild(button);
+    }
 
     // Toggle Mute/Unmute
     button.addEventListener("click", function () {
@@ -32,7 +37,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     }
 });
-
 
 
 /* === Image Effect Appearance About me === */
