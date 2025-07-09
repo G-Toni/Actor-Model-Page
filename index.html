@@ -73,17 +73,18 @@
                     I’ve learned that acting is not just about memorizing lines or hitting marks; it’s about connection. 
                     It’s about vulnerability. It’s about telling stories that matter — stories that leave a lasting impact.
                 </p>
-                <p>
+                <p class="info-about-me">
                     Through this journey, I’ve come to realize that acting is a constant evolution. There’s always something more to learn, 
                     a new layer to peel back, a fresh perspective to gain. Every role I take on is an opportunity to grow, to challenge myself, 
                     and to tap into something greater than I ever thought possible. It’s a pursuit that never truly ends — and that’s what makes it so exhilarating.
                 </p>
-                <p>
+                <p class="info-about-me">
                     In every performance, I strive to not only entertain but to ignite something in the audience. 
                     I want them to feel something — to see the world through the eyes of another, to question, to reflect, and perhaps even to change. 
                     The power of storytelling is limitless, and I am honored to be a part of that journey. 
                     Acting isn’t just my profession; it’s my passion, my obsession, and the very thing that fuels my soul.
                 </p>
+                <small id="btn-more-info">Show more</small>
                 <a href="#contact-me" class="button">Contact me!</a>
             </div>
             <div class="section-aboutus--right">
@@ -358,7 +359,7 @@
             </div>
         </div>
     </footer>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="script.js"></script>
 <script>
     // EXIBIÇÃO DO MENU RESPONSIVO
@@ -367,6 +368,14 @@
 
     toggleBtn.addEventListener('click', () => {
         navItems.classList.toggle('show');
+    });
+
+    $("#btn-more-info").on("click", function () {
+        $(".info-about-me").slideToggle();
+        
+        // Alternar texto do botão
+        const isVisible = $(".info-about-me").is(":visible");
+        $(this).text(isVisible ? "Show less" : "Show more");
     });
 </script>
 </body>
