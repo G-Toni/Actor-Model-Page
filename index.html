@@ -264,7 +264,7 @@
         <!-- Loader -->
         <div id="video-loader">Carregando vídeos...</div>
 
-        <div class="video-grid" id="video-grid" style="display:none;">
+        <div class="video-grid" id="video-grid-box" style="display:none;">
 
           <!-- === Add your videos below like this === -->
 
@@ -388,7 +388,7 @@
             // Esconde o loader
             document.getElementById('video-loader').style.display = 'none';
             // Mostra a grid de vídeos
-            document.getElementById('video-grid').style.display = 'flex'; // ou block, dependendo do seu CSS
+            document.getElementById('video-grid-box').style.display = '';
         }, 4000); // 5000 ms = 5 segundos
     });
 </script>
