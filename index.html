@@ -260,8 +260,12 @@
     <!-- GALERIA DE VÍDEOS -->
     <section class="video-gallery">
         <h2>🎬 Videos Gallery</h2>
-        <div id="video-gallery"></div>
-        <div class="video-grid">
+
+        <!-- Loader -->
+        <div id="video-loader">Carregando vídeos...</div>
+
+        <div class="video-grid" id="video-grid" style="display:none;">
+
           <!-- === Add your videos below like this === -->
 
             <div class="video-item">
@@ -376,6 +380,16 @@
         // Alternar texto do botão
         const isVisible = $(".info-about-me").is(":visible");
         $(this).text(isVisible ? "Show less" : "Show more");
+    });
+
+    window.addEventListener('load', () => {
+        // Quando a página carregar, aguarde 5 segundos:
+        setTimeout(() => {
+            // Esconde o loader
+            document.getElementById('video-loader').style.display = 'none';
+            // Mostra a grid de vídeos
+            document.getElementById('video-grid').style.display = 'flex'; // ou block, dependendo do seu CSS
+        }, 4000); // 5000 ms = 5 segundos
     });
 </script>
 </body>
