@@ -11,7 +11,7 @@
     <section class="banner">
         <header>
             <div class="hero">
-                <video autoplay loop muted plays-inline class="back-video">
+                <video autoplay loop muted playsinline class="back-video">
                     <source src="./assets/videos/Gerson&Camila-ShowReel.mp4" type="video/mp4">
                 </video>
                 <nav>
@@ -293,13 +293,16 @@
             </div>
 
             <!-- MP4 -->
-            <div class="video-item">
-                <video src="./assets/videos/The-Equalizer-Scene.mp4" type="video/mp4" controls muted></video>
-            </div>
+            <div class="video-item video-mp4">
+                <video controls muted playsinline preload="auto">
+                    <source src="./assets/videos/The-Equalizer-Scene.mp4" type="video/mp4">
+                </video>
             </div>
 
-            <div class="video-item">
-                <video src="./assets/videos/American-Gangster-Scene.mp4" type="video/mp4" controls muted></video>
+            <div class="video-item video-mp4">
+                <video controls muted playsinline preload="auto">
+                    <source src="./assets/videos/American-Gangster-Scene.mp4" type="video/mp4">
+                </video>
             </div>
         </div>
         <button class="load-more-btn">Load More</button>
@@ -382,15 +385,32 @@
         $(this).text(isVisible ? "Show less" : "Show more");
     });
 
-    window.addEventListener('load', () => {
-        // Quando a página carregar, aguarde 5 segundos:
-        setTimeout(() => {
-            // Esconde o loader
-            document.getElementById('video-loader').style.display = 'none';
-            // Mostra a grid de vídeos
-            document.getElementById('video-grid-box').style.display = '';
-        }, 4000); // 5000 ms = 5 segundos
+    // More Videos
+    $(".video-gallery .load-more-btn").on("click", function () {
+        document.querySelectorAll('.video-mp4').forEach(el => {
+            el.style.display = 'block';
+        });
     });
+
+    window.addEventListener('load', () => {
+        // Força reload de todos os vídeos da galeria
+        document.querySelectorAll('.video-gallery video').forEach((video) => {
+            const currentSrc = video.querySelector('source')?.getAttribute('src');
+            if (currentSrc) {
+                // Adiciona um timestamp para forçar recarregamento
+                const newSrc = currentSrc + "?t=" + Date.now();
+                video.querySelector('source').setAttribute('src', newSrc);
+                video.load();
+            }
+        });
+
+        // Mostra os vídeos após o loader
+        setTimeout(() => {
+            document.getElementById('video-loader').style.display = 'none';
+            document.getElementById('video-grid-box').style.display = '';
+        }, 4000);
+    });
+
 </script>
 </body>
 </html>

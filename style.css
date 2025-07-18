@@ -599,11 +599,10 @@ h1, h2 {
 
 .video-item {
     position: relative;
-    display: none;
+    display: block;
 }
 
-.video-item iframe,
-.video-item video {
+.video-item iframe {
     width: 100%;
     height: 490px;
     border-radius: 10px;
@@ -611,6 +610,12 @@ h1, h2 {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     object-fit: cover;
     border: 1px solid #000;
+}
+
+.video-item video {
+    width: 100%;              /* Faz o vídeo ocupar toda a largura da div */
+    height: 155px;
+    display: block;
 }
 
 /* Lightbox */
@@ -950,9 +955,14 @@ footer .logo a {
         padding: 10px;
     }
 
-    .video-item iframe, .video-item video {
+    .video-item iframe{
         width: 100%;
         height: 525px;
+    }
+
+    .video-item video {
+        width: 100%;
+        height: 304px;
     }
 
     .contact-form input,
