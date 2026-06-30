@@ -6,14 +6,28 @@
     <title>Gerson Toni</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body> 
     <!-- Topo -->
     <section class="banner">
         <header>
             <div class="hero">
+                <!--
                 <video autoplay loop muted playsinline class="back-video">
                     <source src="./assets/videos/No Way Back - Final Cut & Post Production - Edit By Philip Condron.mp4" type="video/mp4">
                 </video>
+                -->
+
+                <!-- New banner video with Sirv -->
+                <div
+                    id="heroVideo"
+                    class="Sirv back-video"
+                    data-src="https://gersontoni.sirv.com/No%20Way%20Back%20-%20Final%20Cut%20%26%20Post%20Production%20-%20Edit%20By%20Philip%20Condron.mp4">
+                </div>
+                
+                <button id="muteToggle" class="mute-button" type="button">
+                    🔊 Unmute
+                </button>
+
                 <nav>
                     <div class="menu-toggle" id="menu-toggle">☰</div>
                     <ul class="logo-responsive">
@@ -43,7 +57,7 @@
                 </div>
             </div>
         </header>
-    </section>
+    </section>    
 
     <!-- BLOCO ABOUT ME -->
     <section class="default light">

@@ -755,6 +755,173 @@ footer .logo a {
   cursor: pointer;
 }
 
+/* ===============================
+   CINEMATIC HERO UPDATE
+================================ */
+
+.hero {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: #000;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(to right, rgba(0,0,0,0.82), rgba(0,0,0,0.35)),
+        linear-gradient(to top, rgba(0,0,0,0.9), transparent 55%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.back-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+nav {
+    z-index: 5;
+}
+
+.content {
+    display: none;
+}
+
+.hero-cinematic-content {
+    position: absolute;
+    top: 55%;
+    left: 7%;
+    transform: translateY(-50%);
+    z-index: 4;
+    max-width: 850px;
+    text-align: left;
+}
+
+.hero-kicker {
+    color: #d4af37;
+    letter-spacing: 7px;
+    text-transform: uppercase;
+    font-size: 15px;
+    margin-bottom: 18px;
+    font-weight: 700;
+}
+
+.hero-cinematic-content h1 {
+    font-size: clamp(58px, 9vw, 110px);
+    line-height: 0.9;
+    color: #fff;
+    margin: 0 0 28px;
+    font-weight: 900;
+    letter-spacing: -2px;
+    text-align: left;
+}
+
+.hero-cinematic-content h2 {
+    color: #d4af37;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    font-size: clamp(16px, 2vw, 24px);
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+.hero-description {
+    color: #e5e5e5;
+    font-size: 17px;
+    margin-bottom: 34px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.hero-btn {
+    min-width: 210px;
+    padding: 16px 30px;
+    border-radius: 999px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+    font-size: 13px;
+    transition: 0.3s ease;
+}
+
+.hero-btn-primary {
+    background: #d4af37;
+    color: #000;
+}
+
+.hero-btn-primary:hover {
+    background: #fff;
+    color: #000;
+}
+
+.hero-btn-outline {
+    border: 1px solid #d4af37;
+    color: #fff;
+}
+
+.hero-btn-outline:hover {
+    background: #d4af37;
+    color: #000;
+}
+
+.mute-button {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    z-index: 10;
+    background: rgba(255,255,255,0.92);
+    color: #000;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.mute-button:hover {
+    background: #d4af37;
+}
+
+@media (max-width: 768px) {
+    .hero-cinematic-content {
+        left: 24px;
+        right: 24px;
+        top: 58%;
+    }
+
+    .hero-kicker {
+        font-size: 12px;
+        letter-spacing: 4px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-btn {
+        width: 100%;
+    }
+
+    .mute-button {
+        bottom: 18px;
+        left: 18px;
+    }
+}
+
 /* Adjust Footer for Mobile*/
 
 /* Medias query */

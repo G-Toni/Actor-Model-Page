@@ -1,256 +1,297 @@
-// All banner area for the video with the audio
+/* ===============================
+   HERO VIDEO MUTE / UNMUTE
+================================ */
 
 document.addEventListener("DOMContentLoaded", function () {
-    let video = document.querySelector(".back-video");
-    
-    // Create button
+    const heroVideo = document.getElementById("hero-video");
+    const muteButton = document.getElementById("muteToggle");
 
-    if (video) {
+    if (heroVideo && muteButton) {
+        muteButton.addEventListener("click", function () {
+            heroVideo.muted = !heroVideo.muted;
 
-    let button = document.createElement("button");
-    button.innerText = "🔊 Unmute";
-    button.style.position = "absolute";
-    button.style.zIndex = "10";
-    button.style.bottom = "20px";
-    button.style.left = "20px";
-    button.style.padding = "10px 20px";
-    button.style.background = "#fff";
-    button.style.border = "none";
-    button.style.borderRadius = "5px";
-    button.style.cursor = "pointer";
-
-    // Append to body
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        hero.appendChild(button);
-    }
-
-    // Toggle Mute/Unmute
-    button.addEventListener("click", function () {
-        if (video.muted) {
-            video.muted = false;
-            button.innerText = "🔇 Mute";
-        } else {
-            video.muted = true;
-            button.innerText = "🔊 Unmute";
-        }
-    });
+            muteButton.innerText = heroVideo.muted
+                ? "🔊 Unmute"
+                : "🔇 Mute";
+        });
     }
 });
 
 
-/* === Image Effect Appearance About me === */
+/* ===============================
+   ABOUT IMAGE SCROLL EFFECT
+================================ */
 
-// Detect when the image enters the viewport
-window.addEventListener('scroll', function () {
-    const img = document.querySelector('.section-aboutus--right img');
+window.addEventListener("scroll", function () {
+    const img = document.querySelector(".section-aboutus--right img");
+
+    if (!img) return;
+
     const rect = img.getBoundingClientRect();
-    
-    // Check if the image is in the viewport
+
     if (rect.top <= window.innerHeight && rect.bottom >= 0) {
-        img.classList.add('visible');
+        img.classList.add("visible");
     }
 });
 
-/* === Image Effect Appearance Gallery === */
+
+/* ===============================
+   IMAGE GALLERY LOAD MORE
+================================ */
 
 document.addEventListener("DOMContentLoaded", function () {
     const images = document.querySelectorAll(".image-item");
     const loadMoreBtn = document.querySelector(".load-more-btn");
-    let imagesToShow = 10; // Number of images initially displayed
+
+    if (!images.length || !loadMoreBtn) return;
+
+    let imagesToShow = 10;
+
+    images.forEach((img, index) => {
+        img.style.display = index < imagesToShow ? "block" : "none";
+    });
 
     loadMoreBtn.addEventListener("click", function () {
-        let hiddenImages = Array.from(images).slice(imagesToShow, imagesToShow + 10); // Load 10 more each time
-        hiddenImages.forEach(img => img.style.display = "block");
         imagesToShow += 10;
 
-        // Hide button if all images are displayed
+        images.forEach((img, index) => {
+            img.style.display = index < imagesToShow ? "block" : "none";
+        });
+
         if (imagesToShow >= images.length) {
             loadMoreBtn.style.display = "none";
         }
     });
 });
 
-/* === Images Gallery download === */
+
+/* ===============================
+   IMAGE LIGHTBOX
+================================ */
 
 document.addEventListener("DOMContentLoaded", function () {
     const images = document.querySelectorAll(".image-item img");
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
     const downloadBtn = document.getElementById("download-btn");
+    const closeBtn = document.querySelector(".close");
+
+    if (!images.length || !lightbox || !lightboxImg) return;
 
     images.forEach(img => {
         img.addEventListener("click", function () {
             lightbox.style.display = "flex";
+            lightbox.classList.add("active");
             lightboxImg.src = img.src;
-            downloadBtn.href = img.src;
+
+            if (downloadBtn) {
+                downloadBtn.href = img.src;
+            }
         });
     });
 
-    document.querySelector(".close").addEventListener("click", function () {
-        lightbox.style.display = "none";
-    });
+    if (closeBtn) {
+        closeBtn.addEventListener("click", function () {
+            lightbox.style.display = "none";
+            lightbox.classList.remove("active");
+        });
+    }
 
     lightbox.addEventListener("click", function (e) {
-        if (e.target !== lightboxImg && e.target !== downloadBtn) {
+        if (e.target === lightbox) {
             lightbox.style.display = "none";
+            lightbox.classList.remove("active");
         }
     });
 });
 
-/* === Images Gallery download === */
 
-// Open Lightbox
-function openLightbox(imgElement) {
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const downloadBtn = document.getElementById("download-btn");
+/* ===============================
+   DOWNLOAD ALL IMAGES
+================================ */
 
-    lightboxImg.src = imgElement.src; // Set image source
-    downloadBtn.href = imgElement.src; // Set download link
-
-    lightbox.classList.add("active"); // Show lightbox
-}
-
-// Close Lightbox
-function closeLightbox() {
-    document.getElementById("lightbox").classList.remove("active");
-}
-
-// Download All Images Function
 function downloadAllImages() {
     const images = document.querySelectorAll(".image-item img");
 
     images.forEach((img, index) => {
         const link = document.createElement("a");
         link.href = img.src;
-        link.download = `image-${index + 1}.jpg`;
+        link.download = `gerson-toni-image-${index + 1}.jpg`;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
     });
 }
 
-/* === Form Client-Side Validation === */
 
-document.querySelector("form").addEventListener("submit", function(event) {
-    var name = document.querySelector('input[name="name"]').value;
-    var email = document.querySelector('input[name="email"]').value;
-    var message = document.querySelector('textarea[name="message"]').value;
-
-    if (!name || !email || !message) {
-        event.preventDefault(); // Prevent form submission
-        alert("Please fill out all fields before submitting.");
-    }
-});
-
-/* === Videos Section === */
+/* ===============================
+   VIDEO SECTION LOAD MORE
+================================ */
 
 document.addEventListener("DOMContentLoaded", function () {
     const videos = document.querySelectorAll(".video-item");
     const loadMoreBtn = document.querySelector(".load-more-videos-btn");
+
+    if (!videos.length || !loadMoreBtn) return;
+
     let videosToShow = 6;
-  
-    // Show initial videos
+
     function displayVideos() {
-      videos.forEach((vid, index) => {
-        vid.style.display = index < videosToShow ? "block" : "none";
-      });
-  
-      if (videosToShow >= videos.length) {
-        loadMoreBtn.style.display = "none";
-      }
+        videos.forEach((vid, index) => {
+            vid.style.display = index < videosToShow ? "block" : "none";
+        });
+
+        if (videosToShow >= videos.length) {
+            loadMoreBtn.style.display = "none";
+        }
     }
-  
+
     displayVideos();
-  
+
     loadMoreBtn.addEventListener("click", function () {
-      videosToShow += 6;
-      displayVideos();
+        videosToShow += 6;
+        displayVideos();
     });
-  
-    // Lightbox functionality
+});
+
+
+/* ===============================
+   VIDEO LIGHTBOX
+================================ */
+
+document.addEventListener("DOMContentLoaded", function () {
+    const videos = document.querySelectorAll(".video-item");
     const lightbox = document.getElementById("video-lightbox");
     const lightboxContent = document.getElementById("video-lightbox-content");
     const downloadBtn = document.getElementById("download-video-btn");
-  
+
+    if (!videos.length || !lightbox || !lightboxContent) return;
+
     videos.forEach(videoItem => {
-      const iframe = videoItem.querySelector("iframe");
-      const video = videoItem.querySelector("video");
-  
-      if (iframe) {
-        iframe.addEventListener("click", () => {
-          lightboxContent.innerHTML = `<iframe src="${iframe.src}" allowfullscreen></iframe>`;
-          downloadBtn.style.display = "none";
-          lightbox.classList.add("active");
-        });
-      }
-  
-      if (video) {
-        video.addEventListener("click", () => {
-          lightboxContent.innerHTML = `<video src="${video.src}" controls autoplay></video>`;
-          downloadBtn.href = video.src;
-          downloadBtn.style.display = "inline-block";
-          lightbox.classList.add("active");
-        });
-      }
+        const iframe = videoItem.querySelector("iframe");
+        const video = videoItem.querySelector("video");
+
+        if (iframe) {
+            iframe.addEventListener("click", function () {
+                lightboxContent.innerHTML = `<iframe src="${iframe.src}" allowfullscreen></iframe>`;
+
+                if (downloadBtn) {
+                    downloadBtn.style.display = "none";
+                }
+
+                lightbox.classList.add("active");
+            });
+        }
+
+        if (video) {
+            video.addEventListener("click", function () {
+                lightboxContent.innerHTML = `<video src="${video.currentSrc || video.src}" controls autoplay></video>`;
+
+                if (downloadBtn) {
+                    downloadBtn.href = video.currentSrc || video.src;
+                    downloadBtn.style.display = "inline-block";
+                }
+
+                lightbox.classList.add("active");
+            });
+        }
     });
-  });
-  
-  function closeVideoLightbox() {
+});
+
+
+function closeVideoLightbox() {
     const lightbox = document.getElementById("video-lightbox");
     const lightboxContent = document.getElementById("video-lightbox-content");
+
+    if (!lightbox || !lightboxContent) return;
+
     lightbox.classList.remove("active");
     lightboxContent.innerHTML = "";
-  }
-  
+}
 
-/* === Contact Form === */
+
+/* ===============================
+   BASIC CONTACT FORM VALIDATION
+================================ */
+
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+
+    if (!form) return;
+
+    form.addEventListener("submit", function (event) {
+        const name = form.querySelector('input[name="name"]');
+        const email = form.querySelector('input[name="email"]');
+        const message = form.querySelector('textarea[name="message"]');
+
+        if (!name || !email || !message) return;
+
+        if (!name.value || !email.value || !message.value) {
+            event.preventDefault();
+            alert("Please fill out all fields before submitting.");
+        }
+    });
+});
+
+
+/* ===============================
+   EMAILJS CONTACT FORM
+================================ */
 
 document.addEventListener("DOMContentLoaded", function () {
     const SERVICE_ID = "service_tkya50m";
     const TEMPLATE_ID = "template_suwkkeh";
     const PUBLIC_KEY = "cSJi4V8k7ns-5DXU1";
 
-    emailjs.init("cSJi4V8k7ns-5DXU1");
-
     const form = document.getElementById("contact-form");
     const messageBox = document.querySelector(".success-message");
+
+    if (!form || typeof emailjs === "undefined") return;
+
+    emailjs.init(PUBLIC_KEY);
+
     const submitButton = form.querySelector("button");
 
     form.addEventListener("submit", function (event) {
         event.preventDefault();
 
-        const name = form.name.value;
-        const email = form.email.value;
-        const message = form.message.value;
-
         const templateParams = {
-            from_name: name,
-            from_email: email,
-            message: message
+            from_name: form.name.value,
+            from_email: form.email.value,
+            message: form.message.value
         };
 
-        submitButton.disabled = true;
-        submitButton.innerText = "Sending...";
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.innerText = "Sending...";
+        }
 
         emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
             .then(function (response) {
                 console.log("Email sent successfully", response);
-                messageBox.innerText = "Message sent successfully!";
-                messageBox.style.color = "green";
-                messageBox.classList.add("show");
+
+                if (messageBox) {
+                    messageBox.innerText = "Message sent successfully!";
+                    messageBox.style.color = "green";
+                    messageBox.classList.add("show");
+                }
+
                 form.reset();
             })
             .catch(function (error) {
                 console.log("Error sending email", error);
-                messageBox.innerText = "Failed to send message. Try again.";
-                messageBox.style.color = "red";
-                messageBox.classList.add("show");
+
+                if (messageBox) {
+                    messageBox.innerText = "Failed to send message. Try again.";
+                    messageBox.style.color = "red";
+                    messageBox.classList.add("show");
+                }
             })
             .finally(function () {
-                submitButton.disabled = false;
-                submitButton.innerText = "Send Message";
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.innerText = "Send Message";
+                }
             });
     });
 });
