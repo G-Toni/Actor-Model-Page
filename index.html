@@ -7,530 +7,404 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body> 
-    <!-- Topo -->
-    <section class="banner">
-        <header>
-            <div class="hero">
-                <!--
-                <video autoplay loop muted playsinline class="back-video">
-                    <source src="./assets/videos/No Way Back - Final Cut & Post Production - Edit By Philip Condron.mp4" type="video/mp4">
-                </video>
-                -->
 
-                <!-- New banner video with Sirv -->
-                <div
-                    id="heroVideo"
-                    class="Sirv back-video"
-                    data-src="https://gersontoni.sirv.com/No%20Way%20Back%20-%20Final%20Cut%20%26%20Post%20Production%20-%20Edit%20By%20Philip%20Condron.mp4">
-                </div>
-                
-                <button id="muteToggle" class="mute-button" type="button">
-                    🔊 Unmute
-                </button>
+<section class="banner">
+    <header>
+        <div class="hero">
 
-                <nav>
-                    <div class="menu-toggle" id="menu-toggle">☰</div>
-                    <ul class="logo-responsive">
-                        <li class="logo">
-                            <a href="resume.html" target="_blank">Gerson Toni</a></li>
-                        <li>
+            <!-- OLD LOCAL VIDEO - KEEP FOR BACKUP
+            <video autoplay loop muted playsinline class="back-video">
+                <source src="./assets/videos/No Way Back - Final Cut & Post Production - Edit By Philip Condron.mp4" type="video/mp4">
+            </video>
+            -->
+
+            <video autoplay loop muted playsinline class="back-video" id="hero-video" preload="metadata">
+                <source src="https://gersontoni.sirv.com/videos/No%20Way%20Back%20-%20Final%20Cut%20%26%20Post%20Production%20-%20Edit%20By%20Philip%20Condron.mp4" type="video/mp4">
+            </video>
+
+            <button id="muteToggle" class="mute-button" type="button">🔊 Unmute</button>
+
+            <nav>
+                <div class="menu-toggle" id="menu-toggle">☰</div>
+
+                <ul class="logo-responsive">
+                    <li class="logo"><a href="resume.html" target="_blank">Gerson Toni</a></li>
+                </ul>
+
+                <div class="nav-items" id="nav-items">
+                    <ul>
+                        <li class="logo"><a href="resume.html" target="_blank">Gerson Toni</a></li>
+                        <li><a href="">Home</a></li>
+                        <li><a href="#about-me">About me</a></li>
+                        <li><a href="gallery.html" target="_blank">Gallery</a></li>
+                        <li><a href="#video-gallery">Videos</a></li>
+                        <li><a href="resume.html" target="_blank">Resume</a></li>
                     </ul>
-                    <div class="nav-items" id="nav-items">
-                        <ul>
-                            <li class="logo">
-                                <a href="resume.html" target="_blank">Gerson Toni</a>
-                            </li>
-                            <li><a href="">Home</a></li>
-                            <li><a href="#about-me">About me</a></li>
-                            <li><a href="gallery.html" target="_blank">Gallery</a></li>
-                            <li><a href="#video-gallery">Videos</a></li>
-                            <li><a href="resume.html" target="_blank">Resume</a></li>
-                        </ul>
-                    </div>  <!-- end nav-items -->
-                    <div class="rightside">
-                        <a href="#contact-me" class="button" class="_blank">Contact</a>
-                    </div>
-                </nav>
-                <div class="content">
-                    <h1>Actor/Model</h1>
-                    <a href="#contact-me" class="button" class="_blank">Hire me!</a>
                 </div>
-            </div>
-        </header>
-    </section>    
 
-    <!-- BLOCO ABOUT ME -->
-    <section class="default light">
-        <div id="about-me"></div>
-        <div class="section-title">About me</div>
-        <div class="section-desc">Who am I?</div>
-        <div class="section-body">
-            <div class="section-aboutus">
-                <p>
-                    From the moment I stepped onto the stage in my very first acting class, I knew that I had found my true calling. 
-                    There was something electric in the air, something that connected me to a world far greater than myself. 
-                    It was as if every fiber of my being was awakened to the incredible power of storytelling. 
-                    I’ve always believed that stories have the unparalleled ability to inspire, challenge, and unite us. 
-                    They transcend time and space, reaching deep into the heart of the human experience.
-                </p>
-                <p>
-                    Acting became more than just a passion — it became my purpose. Every scene I perform, every character I embody, 
-                    takes me on a journey of self-discovery and growth. It challenges me to dive into the complexities of emotion, 
-                    to understand the motivations of others, and to reveal truths that often remain hidden beneath the surface. 
-                    It’s in those moments on stage, when I transform into someone else, that I feel most alive — like I’m part of 
-                    something far bigger than myself.
-                </p>
-                <p>
-                    Since that first fateful class, I’ve poured every ounce of my energy into perfecting my craft. 
-                    I’ve embraced the countless hours of rigorous training at (Acting School Program), where I’ve pushed myself to new heights. 
-                    Each lesson, each exercise, has helped me not only refine my technical skills but also deepen my understanding of the human experience. 
-                    I’ve learned that acting is not just about memorizing lines or hitting marks; it’s about connection. 
-                    It’s about vulnerability. It’s about telling stories that matter — stories that leave a lasting impact.
-                </p>
-                <p class="info-about-me">
-                    Through this journey, I’ve come to realize that acting is a constant evolution. There’s always something more to learn, 
-                    a new layer to peel back, a fresh perspective to gain. Every role I take on is an opportunity to grow, to challenge myself, 
-                    and to tap into something greater than I ever thought possible. It’s a pursuit that never truly ends — and that’s what makes it so exhilarating.
-                </p>
-                <p class="info-about-me">
-                    In every performance, I strive to not only entertain but to ignite something in the audience. 
-                    I want them to feel something — to see the world through the eyes of another, to question, to reflect, and perhaps even to change. 
-                    The power of storytelling is limitless, and I am honored to be a part of that journey. 
-                    Acting isn’t just my profession; it’s my passion, my obsession, and the very thing that fuels my soul.
-                </p>
-                <small id="btn-more-info">Show more</small>
-                <a href="#contact-me" class="button">Contact me!</a>
+                <div class="rightside">
+                    <a href="#contact-me" class="button">Contact</a>
+                </div>
+            </nav>
+
+            <div class="content">
+                <h1>Actor/Model</h1>
+                <a href="#contact-me" class="button">Hire me!</a>
             </div>
-            <div class="section-aboutus--right">
-                <img src="./assets/images/OfficialPoster.jpeg" alt="">
-            </div>
+
         </div>
-    </section>
+    </header>
+</section>
 
-    <!-- BLOCO COM FOTO DE BACKGROUND -->
-    <div class="cv-container">
-        <!-- TÍTULO EM BLOCO INDEPENDENTE -->
-        <h1 class="cv-title">Gerson Toni</h1>
 
-        <!-- BLOCO DAS COLUNAS -->
-        <div class="cv-columns">
-            <!-- COLUNA ESQUERDA -->
-            <div class="cv-column">
-                <div class="section">
-                    <h2>Education</h2>
-                    <p><strong>The Gaiety School of Acting - Acting for Camera 1,2,3 (2024-2025)</strong></p>
-                    <p><strong>CCT College - Bachelor in Computer Science (Graduated with Honors)</strong></p>
-                </div>
-                <div class="section">
-                    <h2>Film, TV, and Voice Credits</h2>
-                    <p><strong>12 Days for Christmas - Beefy Santa (2025)</strong></p>
-                    <p><strong>Wednesday - Teacher (2024)</strong></p>
-                    <p><strong>Power Ballad - Security/Party Guest (2024)</strong></p>
-                    <p><strong>Sanctuary - Adm Staff (2024)</strong></p>
-                </div>
+<section class="default light">
+    <div id="about-me"></div>
+    <div class="section-title">About me</div>
+    <div class="section-desc">Who am I?</div>
+
+    <div class="section-body">
+        <div class="section-aboutus">
+            <p>
+                From the moment I stepped onto the stage in my very first acting class, I knew that I had found my true calling. 
+                There was something electric in the air, something that connected me to a world far greater than myself. 
+                It was as if every fiber of my being was awakened to the incredible power of storytelling.
+            </p>
+
+            <p>
+                Acting became more than just a passion — it became my purpose. Every scene I perform, every character I embody, 
+                takes me on a journey of self-discovery and growth.
+            </p>
+
+            <p>
+                Since that first fateful class, I’ve poured every ounce of my energy into perfecting my craft. 
+                I’ve embraced the countless hours of rigorous training and continue to grow as a performer.
+            </p>
+
+            <p class="info-about-me">
+                Through this journey, I’ve come to realize that acting is a constant evolution. There’s always something more to learn, 
+                a new layer to peel back, and a fresh perspective to gain.
+            </p>
+
+            <p class="info-about-me">
+                In every performance, I strive to not only entertain but to ignite something in the audience.
+            </p>
+
+            <small id="btn-more-info">Show more</small>
+            <a href="#contact-me" class="button">Contact me!</a>
+        </div>
+
+        <div class="section-aboutus--right">
+            <img src="./assets/images/OfficialPoster.jpeg" alt="Gerson Toni Poster">
+        </div>
+    </div>
+</section>
+
+
+<div class="cv-container">
+    <h1 class="cv-title">Gerson Toni</h1>
+
+    <div class="cv-columns">
+        <div class="cv-column">
+            <div class="section">
+                <h2>Education</h2>
+                <p><strong>The Gaiety School of Acting - Acting for Camera 1,2,3 (2024-2025)</strong></p>
+                <p><strong>CCT College - Bachelor in Computer Science (Graduated with Honors)</strong></p>
             </div>
 
-            <!-- COLUNA DIREITA -->
-            <div class="cv-column">
-                <div class="section">
-                    <h2>Training & Workshops</h2>
-                    <p><strong>EBSSA Instruction - Longform Course - Combined Firearms Course (2025)</strong></p>
-                    <p><strong>Victorious - IDCA Unarmed Stage Combat (2025)</strong></p>
-                </div>
-                <div class="section">
-                    <h2>Special Skills</h2>
-                    <p><strong>Fluent in English, Spanish, Italian, and Portuguese</strong></p>
-                    <p><strong>Firearms Specialist: AK47, Glock 17, CZ75/99</strong></p>
-                    <p><strong>Expert Martial Artist: Brazilian Jiu-Jitsu, Capoeira, Boxing</strong></p>
-                    <p><strong>Sports: Gym, Running, Swimming</strong></p>
-                    <p><strong>Dance: Salsa, Bachata, Samba</strong></p>
-                    <p><strong>Full International Driving License: Category A/B</strong></p>
-                </div>
+            <div class="section">
+                <h2>Film, TV, and Voice Credits</h2>
+                <p><strong>12 Days for Christmas - Beefy Santa (2025)</strong></p>
+                <p><strong>Wednesday - Teacher (2024)</strong></p>
+                <p><strong>Power Ballad - Security/Party Guest (2024)</strong></p>
+                <p><strong>Sanctuary - Adm Staff (2024)</strong></p>
             </div>
         </div>
 
-        <!-- BLOCO DE CONTATO -->
-        <div class="cv-contact">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:gerson210485@gmail.com" class="custom-link-contact">gerson210485@gmail.com</a></p>
-            <p>Management Jeny Poquet: <a href="mailto:info@laklaketa.com" class="custom-link-contact">info@laklaketa.com</a></p>
-            <p>Instagram: <a href="https://instagram.com/gerson_toni" class="custom-link-contact" target="_blank">@gerson_toni</a></p>
-            <a href="./assets/Gerson Toni Acting Resume.pdf" download="Gerson_Toni_CV.pdf" target="_blank" id="download-btn">📄 Download CV</a>
+        <div class="cv-column">
+            <div class="section">
+                <h2>Training & Workshops</h2>
+                <p><strong>EBSSA Instruction - Longform Course - Combined Firearms Course (2025)</strong></p>
+                <p><strong>Victorious - IDCA Unarmed Stage Combat (2025)</strong></p>
+            </div>
+
+            <div class="section">
+                <h2>Special Skills</h2>
+                <p><strong>Fluent in English, Spanish, Italian, and Portuguese</strong></p>
+                <p><strong>Firearms Specialist: AK47, Glock 17, CZ75/99</strong></p>
+                <p><strong>Expert Martial Artist: Brazilian Jiu-Jitsu, Capoeira, Boxing</strong></p>
+                <p><strong>Sports: Gym, Running, Swimming</strong></p>
+                <p><strong>Dance: Salsa, Bachata, Samba</strong></p>
+                <p><strong>Full International Driving License: Category A/B</strong></p>
+            </div>
         </div>
     </div>
 
-    <!-- GALERIA DE FOTOS -->
-    <section class="image-gallery">
-        <h2>Photo Gallery</h2>
-        <div class="image-grid">
-            <div class="image-item">
-                <a href="./assets/images/Headshot.jpeg" download></a>
-                <img src="./assets/images/Headshot.jpeg" alt="Image 1" onclick="openLightbox(this)">
-            </div>
-            <div class="image-item">
-                <a href="./assets/images/profile.jpg" download></a>
-                <img src="./assets/images/profile.jpg" alt="Image 1" onclick="openLightbox(this)">
-            </div>
-            <div class="image-item">
-                <a href="./assets/images/Tattoo.jpg" download></a>
-                <img src="./assets/images/Tattoo.jpg" alt="Image 10" onclick="openLightbox(this)">
-            </div>
-            <div class="image-item">
-                <a href="./assets/images/formal.jpg" download></a>
-                <img src="./assets/images/formal.jpg" alt="Image 4" onclick="openLightbox(this)">
-            </div>
-            <div class="image-item">
-                <a href="./assets/images/sport-6.jpg" download></a>
-                <img src="./assets/images/sport-6.jpg" alt="Image 2" onclick="openLightbox(this)">
-            </div>
-            <div class="image-item">
-                <a href="./assets/images/FireArm2.jpeg" download></a>
-                <img src="./assets/images/FireArm2.jpeg" alt="Image 3" onclick="openLightbox(this)">
-            </div>
-            <div class="image-item">
-                <a href="./assets/images/FireArm3.jpeg" download></a>
-                <img src="./assets/images/FireArm3.jpeg" alt="Image 5" onclick="openLightbox(this)">
-            </div>
-            <div class="image-item">
-                <a href="./assets/images/FireArm.jpeg" download></a>
-                <img src="./assets/images/FireArm.jpeg" alt="Image 8" onclick="openLightbox(this)">
-            </div>
-            <div class="image-item">
-                <a href="./assets/images/FireArm4.jpeg" download></a>
-                <img src="./assets/images/FireArm4.jpeg" alt="Image 9" onclick="openLightbox(this)">
-            </div>
-            <div class="image-item">
-                <a href="./assets/images/FireArm6.jpeg" download></a>
-                <img src="./assets/images/FireArm6.jpeg" alt="Image 14" onclick="openLightbox(this)">
-            </div>
-            <div class="image-item">
-                <a href="./assets/images/" download></a>
-                <img src="./assets/images/OfficialPoster.jpeg" alt="Image 18" onclick="openLightbox(this)">
-            </div>
-            <div class="image-item">
-                <a href="./assets/images/" download></a>
-                <img src="./assets/images/No Way Back - Group Poster.jpeg" alt="Image 19" onclick="openLightbox(this)">
-            </div>
-            <div class="image-item">
-                <a href="./assets/images/" download></a>
-                <img src="./assets/images/Gerson - Lucas.jpeg" alt="Image 20" onclick="openLightbox(this)">
-            </div>
-            <div class="image-item">
-                <a href="./assets/images/" download></a>
-                <img src="./assets/images/Gerson - Lucas 2.jpeg" alt="Image 21" onclick="openLightbox(this)">
-            </div>
-            <div class="image-item">
-                <a href="./assets/images/Fighting.JPG" download></a>
-                <img src="./assets/images/Fighting.JPG" alt="Image 24" onclick="openLightbox(this)">
-            </div>
-            <div class="image-item">
-                <a href="./assets/images/sport-2.jpg" download></a>
-                <img src="./assets/images/sport-2.jpg" alt="Image 7" onclick="openLightbox(this)">
-            </div>
-            <div class="image-item">
-                <a href="./assets/images/sport-6.jpg" download></a>
-                <img src="./assets/images/sport-3.jpg" alt="Image 12" onclick="openLightbox(this)">
-            </div>
-            <div class="image-item">
-                <a href="./assets/images/sport-4.jpg" download></a>
-                <img src="./assets/images/sport-4.jpg" alt="Image 13" onclick="openLightbox(this)">
-            </div>
-            <div class="image-item">
-                <a href="./assets/images/sport-5.jpg" download></a>
-                <img src="./assets/images/sport-5.jpg" alt="Image 15" onclick="openLightbox(this)">
-            </div>
-            <div class="image-item">
-                <a href="./assets/images/sport-1.jpg" download></a>
-                <img src="./assets/images/sport-1.jpg" alt="Image 17" onclick="openLightbox(this)">
-            </div>
-            <div class="image-item">
-                <a href="./assets/images/Tattoo5.jpg" download></a>
-                <img src="./assets/images/Tattoo5.jpg" alt="Image 6" onclick="openLightbox(this)">
-            </div>
-            <div class="image-item">
-                <a href="./assets/images/Tattoo3.jpg" download></a>
-                <img src="./assets/images/Tattoo3.jpg" alt="Image 11" onclick="openLightbox(this)">
-            </div>
-            <div class="image-item">
-                <a href="./assets/images/show-2.jpg" download></a>
-                <img src="./assets/images/show-2.jpg" alt="Image 16" onclick="openLightbox(this)">
-            </div>
-            <div class="image-item">
-                <a href="./assets/images/" download></a>
-                <img src="./assets/images/best-doctors.jpg" alt="Image 22" onclick="openLightbox(this)">
-            </div>
-            <div class="image-item">
-                <a href="./assets/images/" download></a>
-                <img src="./assets/images/aviva-care-hero-tadhg.$16x9-mobile-lg-4cols$.jpg" alt="Image 23" onclick="openLightbox(this)">
-            </div>
-        </div>
-        <button class="load-more-btn">Load More</button>
-        <button class="download-all-btn" onclick="downloadAllImages()">Download All</button>
+    <div class="cv-contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:gerson210485@gmail.com" class="custom-link-contact">gerson210485@gmail.com</a></p>
+        <p>Management Jeny Poquet: <a href="mailto:info@laklaketa.com" class="custom-link-contact">info@laklaketa.com</a></p>
+        <p>Instagram: <a href="https://instagram.com/gerson_toni" class="custom-link-contact" target="_blank">@gerson_toni</a></p>
+        <a href="./assets/Gerson Toni Acting Resume.pdf" download="Gerson_Toni_CV.pdf" target="_blank" id="download-btn">📄 Download CV</a>
+    </div>
+</div>
 
-        <!-- Lightbox (Hidden Initially) -->
-        <div id="lightbox" class="lightbox">
-            <span class="close" onclick="closeLightbox()">&times;</span>
-            <img id="lightbox-img" src="" alt="Preview">
-            <a id="download-btn" download>Download</a>
-        </div>
-    </section>
 
-    <!-- GALERIA DE VÍDEOS -->
-    <section class="video-gallery">
-        <h2>🎬 Videos Gallery</h2>
+<section class="image-gallery">
+    <h2>Photo Gallery</h2>
 
-        <!-- Loader -->
-        <div id="video-loader">Loading videos...</div>
-
-        <div class="video-grid" id="video-grid-box" style="display:none;">
-
-          <!-- === Add your videos below like this === -->
-            
-    <!--    <div class="video-item">
-                <iframe src="https://www.instagram.com/p/DAvjnm7NmDf/embed" allowfullscreen></iframe>
-            </div>
-
-            <div class="video-item">
-                <iframe src="https://www.instagram.com/p/DIRIzFeNxoE/embed" allowfullscreen></iframe>
-            </div>
-
-            <div class="video-item">
-                <iframe src="https://www.instagram.com/p/C8M8Dd2sGbb/embed" allowfullscreen></iframe>
-            </div>            
-
-            <div class="video-item">
-                <iframe src="https://www.instagram.com/p/C-r2tS0s570/embed" allowfullscreen></iframe>
-            </div>
-
-            <div class="video-item">
-                <iframe src="https://www.instagram.com/p/Cxyp9woMO2_/embed" allowfullscreen></iframe>
-            </div>
-
-            <div class="video-item">
-                <iframe src="https://www.instagram.com/p/CnUZ88sKddb/embed" allowfullscreen></iframe>
-            </div> -->
-
-            <!-- MP4 -->
-            <div class="video-item video-mp4">
-                <video controls muted playsinline preload="auto">
-                    <source src="./assets/videos/No Way Back - Final Cut & Post Production - Edit By Philip Condron.mp4" type="video/mp4">
-                </video>
-            </div>
-
-            <div class="video-item video-mp4">
-                <video controls muted playsinline preload="auto">
-                    <source src="./assets/videos/STAFF ROOM Pilot Trailer - Jintonika Entertainment (1080p).mp4" type="video/mp4">
-                </video>
-            </div>
-
-            <div class="video-item video-mp4">
-                <video controls muted playsinline preload="auto">
-                    <source src="./assets/videos/Gerson&Camila-ShowReel.mp4" type="video/mp4">
-                </video>
-            </div>    
-            
-            <div class="video-item video-mp4">
-                <video controls muted playsinline preload="auto">
-                    <source src="./assets/videos/ShootingActionClip.mp4" type="video/mp4">
-                </video>
-            </div>
-       
-            <div class="video-item video-mp4">
-                <video controls muted playsinline preload="auto">
-                    <source src="./assets/videos/Heineken® 0.0 Campaing.mp4" type="video/mp4">
-                </video>
-            </div>
-
-            <div class="video-item video-mp4">
-                <video controls muted playsinline preload="auto">
-                    <source src="./assets/videos/StenaLine Commercial.mp4" type="video/mp4">
-                </video>
-            </div>
-
-            <div class="video-item video-mp4">
-                <video controls muted playsinline preload="auto">
-                    <source src="./assets/videos/Rockshore Commercial.mov" type="video/mp4">
-                </video>
-            </div>
-
-            <div class="video-item video-mp4">
-                <video controls muted playsinline preload="auto">
-                    <source src="./assets/videos/Rockshore Beer Campaing.mov" type="video/mp4">
-                </video>
-            </div>
-
-            <div class="video-item video-mp4">
-                <video controls muted playsinline preload="auto">
-                    <source src="./assets/videos/Aviva Care - Protection from Aviva.mp4" type="video/mp4">
-                </video>
-            </div>
-
-            <div class="video-item video-mp4">
-                <video controls muted playsinline preload="auto">
-                    <source src="./assets/videos/CarterHire Campaing.mp4" type="video/mp4">
-                </video>
-            </div>
-
-            <div class="video-item video-mp4">
-                <video controls muted playsinline preload="auto">
-                    <source src="./assets/videos/Fighting with Spear.mp4" type="video/mp4">
-                </video>
-            </div>
-
-            <div class="video-item video-mp4">
-                <video controls muted playsinline preload="auto">
-                    <source src="./assets/videos/Sword+SpearTraining.mp4" type="video/mp4">
-                </video>
-            </div>
-
-            <div class="video-item video-mp4">
-                <video controls muted playsinline preload="auto">
-                    <source src="./assets/videos/Gerson Toni - Escena.mp4" type="video/mp4">
-                </video>
-            </div>
-
-            <div class="video-item video-mp4">
-                <video controls muted playsinline preload="auto">
-                    <source src="./assets/videos/The-Equalizer-Scene.mp4" type="video/mp4">
-                </video>
-            </div>
-
-            <div class="video-item video-mp4">
-                <video controls muted playsinline preload="auto">
-                    <source src="./assets/videos/American-Gangster-Scene.mp4" type="video/mp4">
-                </video>
-            </div>
-
-            <div class="video-item video-mp4">
-                <video controls muted playsinline preload="auto">
-                    <source src="./assets/videos/🎥 STAGE COMBAT ⚔️ Hobbs vs S.mp4" type="video/mp4">
-                </video>
-            </div>
-
-            <div class="video-item video-mp4">
-                <video controls muted playsinline preload="auto">
-                    <source src="./assets/videos/Rapier & Dagger.mp4" type="video/mp4">
-                </video>
-            </div>
-
-            <div class="video-item video-mp4">
-                <video controls muted playsinline preload="auto">
-                    <source src="./assets/videos/Backflip.mov" type="video/mp4">
-                </video>
-            </div>
-
-            <div class="video-item video-mp4">
-                <video controls muted playsinline preload="auto">
-                    <source src="./assets/videos/Playing Football.mp4" type="video/mp4">
-                </video>
-            </div>
-        </div>
-        <button class="load-more-btn">Load More</button>
-
-        <!-- Lightbox for enlarged video -->
-        <div id="video-lightbox" class="lightbox">
-            <span class="close" onclick="closeVideoLightbox()">×</span>
-            <div id="video-lightbox-content"></div>
-            <a id="download-video-btn" href="#" download class="download-btn">⬇ Download</a>
-        </div>
-    </section>
-
-    <!-- BLOCO DE CONTATO -->
-    <div class="contact-me">
-        <!-- Ajustei uns itens que faltava nesse form -->
-        <!--
-            - Vi que está utilizando o netlify, dessa forma adicionei o name ao form, method="POST" e o atributo netflify
-            >> Quando você publica esse site no Netlify, ele detecta automaticamente o formulário com data-netlify="true".
-            >> Os envios aparecem na aba "Forms" do seu painel Netlify.
-            >> Você pode configurar notificações por e-mail
-
-            PARA RECEBER EM SEU EMAIL:
-               1) Vá até o Netlify Dashboard.
-               2) Acesse o site que publicou.
-               3) Clique em Forms.
-               4) Clique em Settings → Notifications.
-               5) Ative "Email notifications" e informe seu e-mail.
-        -->
-
-        <h2>Contact Me</h2>
-        <div id="contact-me" class="section"></div>
-        <form id="contact-form" name="contact" method="POST" data-netlify="true">
-            <!-- Campo oculto obrigatório para identificar o form -->
-            <input type="hidden" name="form-name" value="contact">
-
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit" class="button">Send Message</button>
-        </form>
-        <div class="success-message"></div>
+    <div class="image-grid">
+        <div class="image-item"><img src="./assets/images/Headshot.jpeg" alt="Headshot" onclick="openLightbox(this)"></div>
+        <div class="image-item"><img src="./assets/images/profile.jpg" alt="Profile" onclick="openLightbox(this)"></div>
+        <div class="image-item"><img src="./assets/images/Tattoo.jpg" alt="Tattoo" onclick="openLightbox(this)"></div>
+        <div class="image-item"><img src="./assets/images/formal.jpg" alt="Formal" onclick="openLightbox(this)"></div>
+        <div class="image-item"><img src="./assets/images/sport-6.jpg" alt="Sport" onclick="openLightbox(this)"></div>
+        <div class="image-item"><img src="./assets/images/FireArm2.jpeg" alt="Firearm" onclick="openLightbox(this)"></div>
+        <div class="image-item"><img src="./assets/images/FireArm3.jpeg" alt="Firearm" onclick="openLightbox(this)"></div>
+        <div class="image-item"><img src="./assets/images/FireArm.jpeg" alt="Firearm" onclick="openLightbox(this)"></div>
+        <div class="image-item"><img src="./assets/images/FireArm4.jpeg" alt="Firearm" onclick="openLightbox(this)"></div>
+        <div class="image-item"><img src="./assets/images/FireArm6.jpeg" alt="Firearm" onclick="openLightbox(this)"></div>
+        <div class="image-item"><img src="./assets/images/OfficialPoster.jpeg" alt="Official Poster" onclick="openLightbox(this)"></div>
+        <div class="image-item"><img src="./assets/images/No Way Back - Group Poster.jpeg" alt="No Way Back Poster" onclick="openLightbox(this)"></div>
+        <div class="image-item"><img src="./assets/images/Gerson - Lucas.jpeg" alt="Scene Photo" onclick="openLightbox(this)"></div>
+        <div class="image-item"><img src="./assets/images/Gerson - Lucas 2.jpeg" alt="Scene Photo" onclick="openLightbox(this)"></div>
+        <div class="image-item"><img src="./assets/images/Fighting.JPG" alt="Fighting" onclick="openLightbox(this)"></div>
+        <div class="image-item"><img src="./assets/images/sport-2.jpg" alt="Sport" onclick="openLightbox(this)"></div>
+        <div class="image-item"><img src="./assets/images/sport-3.jpg" alt="Sport" onclick="openLightbox(this)"></div>
+        <div class="image-item"><img src="./assets/images/sport-4.jpg" alt="Sport" onclick="openLightbox(this)"></div>
+        <div class="image-item"><img src="./assets/images/sport-5.jpg" alt="Sport" onclick="openLightbox(this)"></div>
+        <div class="image-item"><img src="./assets/images/sport-1.jpg" alt="Sport" onclick="openLightbox(this)"></div>
+        <div class="image-item"><img src="./assets/images/Tattoo5.jpg" alt="Tattoo" onclick="openLightbox(this)"></div>
+        <div class="image-item"><img src="./assets/images/Tattoo3.jpg" alt="Tattoo" onclick="openLightbox(this)"></div>
+        <div class="image-item"><img src="./assets/images/show-2.jpg" alt="Show" onclick="openLightbox(this)"></div>
+        <div class="image-item"><img src="./assets/images/best-doctors.jpg" alt="Commercial" onclick="openLightbox(this)"></div>
+        <div class="image-item"><img src="./assets/images/aviva-care-hero-tadhg.$16x9-mobile-lg-4cols$.jpg" alt="Commercial" onclick="openLightbox(this)"></div>
     </div>
 
-    <!-- RODAPÉ -->
-    <footer>
-        <div class="container" id="footer-container">
-            <div class="logo">
-                <a href="">Gerson Toni</a>
-            </div>
-            <div class="footer--area">
-                <div class="footer--item area1">
-                    <div class="footer-social">
-                        <a href=""><img src="./assets/images/Icons/facebook.png" /></a>
-                        <a href=""><img src="./assets/images/Icons/googleplus.png" /></a>
-                        <a href=""><img src="./assets/images/Icons/linkedin.png" /></a>
-                        <a href=""><img src="./assets/images/Icons/pinterest.png" /></a>
-                        <a href=""><img src="./assets/images/Icons/twitter.png" /></a>
-                    </div>
+    <button class="load-more-btn">Load More</button>
+    <button class="download-all-btn" onclick="downloadAllImages()">Download All</button>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-img" src="" alt="Preview">
+        <a id="download-btn" download>Download</a>
+    </div>
+</section>
+
+
+<section class="video-gallery" id="video-gallery">
+    <h2>🎬 Videos Gallery</h2>
+
+    <div id="video-loader">Loading videos...</div>
+
+    <div class="video-grid" id="video-grid-box" style="display:none;">
+
+        <div class="video-item video-mp4">
+            <video controls muted playsinline preload="metadata">
+                <source src="https://gersontoni.sirv.com/videos/No%20Way%20Back%20-%20Final%20Cut%20%26%20Post%20Production%20-%20Edit%20By%20Philip%20Condron.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-item video-mp4">
+            <video controls muted playsinline preload="metadata">
+                <source src="https://gersontoni.sirv.com/videos/STAFF%20ROOM%20Pilot%20Trailer%20-%20Jintonika%20Entertainment%20(1080p).mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-item video-mp4">
+            <video controls muted playsinline preload="metadata">
+                <source src="https://gersontoni.sirv.com/videos/Gerson%26Camila-ShowReel.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-item video-mp4">
+            <video controls muted playsinline preload="metadata">
+                <source src="https://gersontoni.sirv.com/videos/ShootingActionClip.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-item video-mp4">
+            <video controls muted playsinline preload="metadata">
+                <source src="https://gersontoni.sirv.com/videos/Heineken%C2%AE%200.0%20Campaing.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-item video-mp4">
+            <video controls muted playsinline preload="metadata">
+                <source src="https://gersontoni.sirv.com/videos/StenaLine%20Commercial.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-item video-mp4">
+            <video controls muted playsinline preload="metadata">
+                <source src="https://gersontoni.sirv.com/videos/TheTenthMan%20X%20Rockshore%20Commercial.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-item video-mp4">
+            <video controls muted playsinline preload="metadata">
+                <source src="https://gersontoni.sirv.com/videos/Rockshore%20Beer%20Campaing.mov" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-item video-mp4">
+            <video controls muted playsinline preload="metadata">
+                <source src="https://gersontoni.sirv.com/videos/Aviva%20Care%20-%20Protection%20from%20Aviva.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-item video-mp4">
+            <video controls muted playsinline preload="metadata">
+                <source src="https://gersontoni.sirv.com/videos/CarterHire%20Campaing.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-item video-mp4">
+            <video controls muted playsinline preload="metadata">
+                <source src="https://gersontoni.sirv.com/videos/Fighting%20with%20Spear.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-item video-mp4">
+            <video controls muted playsinline preload="metadata">
+                <source src="https://gersontoni.sirv.com/videos/Sword%2BSpearTraining.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-item video-mp4">
+            <video controls muted playsinline preload="metadata">
+                <source src="https://gersontoni.sirv.com/videos/Gerson%20Toni%20-%20Escena.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-item video-mp4">
+            <video controls muted playsinline preload="metadata">
+                <source src="https://gersontoni.sirv.com/videos/The-Equalizer-Scene.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-item video-mp4">
+            <video controls muted playsinline preload="metadata">
+                <source src="https://gersontoni.sirv.com/videos/American-Gangster-Scene.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-item video-mp4">
+            <video controls muted playsinline preload="metadata">
+                <source src="https://gersontoni.sirv.com/videos/%F0%9F%8E%A5%20STAGE%20COMBAT%20%E2%9A%94%EF%B8%8F%20Hobbs%20vs%20S.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-item video-mp4">
+            <video controls muted playsinline preload="metadata">
+                <source src="https://gersontoni.sirv.com/videos/Rapier%20%26%20Dagger.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-item video-mp4">
+            <video controls muted playsinline preload="metadata">
+                <source src="https://gersontoni.sirv.com/videos/Backflip.mov" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-item video-mp4">
+            <video controls muted playsinline preload="metadata">
+                <source src="https://gersontoni.sirv.com/videos/Playing%20Football.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-item video-mp4">
+            <video controls muted playsinline preload="metadata">
+                <source src="https://gersontoni.sirv.com/videos/Skydiving.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-item video-mp4">
+            <video controls muted playsinline preload="metadata">
+                <source src="https://gersontoni.sirv.com/videos/Boxing%20Training.mp4" type="video/mp4">
+            </video>
+        </div>
+
+    </div>
+
+    <button class="load-more-videos-btn">Load More</button>
+
+    <div id="video-lightbox" class="lightbox">
+        <span class="close" onclick="closeVideoLightbox()">×</span>
+        <div id="video-lightbox-content"></div>
+        <a id="download-video-btn" href="#" download class="download-btn">⬇ Download</a>
+    </div>
+</section>
+
+
+<div class="contact-me">
+    <h2>Contact Me</h2>
+    <div id="contact-me" class="section"></div>
+
+    <form id="contact-form" name="contact" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit" class="button">Send Message</button>
+    </form>
+
+    <div class="success-message"></div>
+</div>
+
+
+<footer>
+    <div class="container" id="footer-container">
+        <div class="logo">
+            <a href="">Gerson Toni</a>
+        </div>
+
+        <div class="footer--area">
+            <div class="footer--item area1">
+                <div class="footer-social">
+                    <a href=""><img src="./assets/images/Icons/facebook.png" alt="Facebook"></a>
+                    <a href=""><img src="./assets/images/Icons/googleplus.png" alt="Google Plus"></a>
+                    <a href=""><img src="./assets/images/Icons/linkedin.png" alt="LinkedIn"></a>
+                    <a href=""><img src="./assets/images/Icons/pinterest.png" alt="Pinterest"></a>
+                    <a href=""><img src="./assets/images/Icons/twitter.png" alt="Twitter"></a>
                 </div>
-                <div class="copyrights">Copyright 2026 © Created by Gerson Toni. <a href="">All the Rights Reserved</a>.</div>
+            </div>
+
+            <div class="copyrights">
+                Copyright 2026 © Created by Gerson Toni. <a href="">All the Rights Reserved</a>.
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
+
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="script.js"></script>
-<script>
-    // EXIBIÇÃO DO MENU RESPONSIVO
-    const toggleBtn = document.getElementById('menu-toggle');
-    const navItems = document.getElementById('nav-items');
 
-    toggleBtn.addEventListener('click', () => {
-        navItems.classList.toggle('show');
-    });
+<script>
+    const toggleBtn = document.getElementById("menu-toggle");
+    const navItems = document.getElementById("nav-items");
+
+    if (toggleBtn && navItems) {
+        toggleBtn.addEventListener("click", function () {
+            navItems.classList.toggle("show");
+        });
+    }
 
     $("#btn-more-info").on("click", function () {
         $(".info-about-me").slideToggle();
-        
-        // Alternar texto do botão
+
         const isVisible = $(".info-about-me").is(":visible");
         $(this).text(isVisible ? "Show less" : "Show more");
     });
 
-    // More Videos
-    $(".video-gallery .load-more-btn").on("click", function () {
-        document.querySelectorAll('.video-mp4').forEach(el => {
-            el.style.display = 'block';
-        });
+    window.addEventListener("load", function () {
+        const loader = document.getElementById("video-loader");
+        const videoGrid = document.getElementById("video-grid-box");
+
+        if (loader) loader.style.display = "none";
+        if (videoGrid) videoGrid.style.display = "";
     });
-
-    window.addEventListener('load', () => {
-        // Força reload de todos os vídeos da galeria
-        document.querySelectorAll('.video-gallery video').forEach((video) => {
-            const currentSrc = video.querySelector('source')?.getAttribute('src');
-            if (currentSrc) {
-                // Adiciona um timestamp para forçar recarregamento
-                const newSrc = currentSrc + "?t=" + Date.now();
-                video.querySelector('source').setAttribute('src', newSrc);
-                video.load();
-            }
-        });
-
-        // Mostra os vídeos após o loader
-        setTimeout(() => {
-            document.getElementById('video-loader').style.display = 'none';
-            document.getElementById('video-grid-box').style.display = '';
-        }, 4000);
-    });
-
 </script>
+
 </body>
 </html>

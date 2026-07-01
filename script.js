@@ -9,10 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (heroVideo && muteButton) {
         muteButton.addEventListener("click", function () {
             heroVideo.muted = !heroVideo.muted;
-
-            muteButton.innerText = heroVideo.muted
-                ? "🔊 Unmute"
-                : "🔇 Mute";
+            muteButton.innerText = heroVideo.muted ? "🔊 Unmute" : "🔇 Mute";
         });
     }
 });
@@ -24,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 window.addEventListener("scroll", function () {
     const img = document.querySelector(".section-aboutus--right img");
-
     if (!img) return;
 
     const rect = img.getBoundingClientRect();
@@ -84,9 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
             lightbox.classList.add("active");
             lightboxImg.src = img.src;
 
-            if (downloadBtn) {
-                downloadBtn.href = img.src;
-            }
+            if (downloadBtn) downloadBtn.href = img.src;
         });
     });
 
@@ -174,21 +168,18 @@ document.addEventListener("DOMContentLoaded", function () {
         if (iframe) {
             iframe.addEventListener("click", function () {
                 lightboxContent.innerHTML = `<iframe src="${iframe.src}" allowfullscreen></iframe>`;
-
-                if (downloadBtn) {
-                    downloadBtn.style.display = "none";
-                }
-
+                if (downloadBtn) downloadBtn.style.display = "none";
                 lightbox.classList.add("active");
             });
         }
 
         if (video) {
             video.addEventListener("click", function () {
-                lightboxContent.innerHTML = `<video src="${video.currentSrc || video.src}" controls autoplay></video>`;
+                const videoSrc = video.currentSrc || video.querySelector("source")?.src || video.src;
+                lightboxContent.innerHTML = `<video src="${videoSrc}" controls autoplay></video>`;
 
                 if (downloadBtn) {
-                    downloadBtn.href = video.currentSrc || video.src;
+                    downloadBtn.href = videoSrc;
                     downloadBtn.style.display = "inline-block";
                 }
 
@@ -211,31 +202,7 @@ function closeVideoLightbox() {
 
 
 /* ===============================
-   BASIC CONTACT FORM VALIDATION
-================================ */
-
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector("form");
-
-    if (!form) return;
-
-    form.addEventListener("submit", function (event) {
-        const name = form.querySelector('input[name="name"]');
-        const email = form.querySelector('input[name="email"]');
-        const message = form.querySelector('textarea[name="message"]');
-
-        if (!name || !email || !message) return;
-
-        if (!name.value || !email.value || !message.value) {
-            event.preventDefault();
-            alert("Please fill out all fields before submitting.");
-        }
-    });
-});
-
-
-/* ===============================
-   EMAILJS CONTACT FORM
+   EMAILJS CONTACT FORM + VALIDATION
 ================================ */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -246,19 +213,33 @@ document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("contact-form");
     const messageBox = document.querySelector(".success-message");
 
-    if (!form || typeof emailjs === "undefined") return;
-
-    emailjs.init(PUBLIC_KEY);
-
-    const submitButton = form.querySelector("button");
+    if (!form) return;
 
     form.addEventListener("submit", function (event) {
         event.preventDefault();
 
+        const name = form.querySelector('input[name="name"]');
+        const email = form.querySelector('input[name="email"]');
+        const message = form.querySelector('textarea[name="message"]');
+
+        if (!name?.value || !email?.value || !message?.value) {
+            alert("Please fill out all fields before submitting.");
+            return;
+        }
+
+        if (typeof emailjs === "undefined") {
+            alert("Email service is not loaded. Please try again later.");
+            return;
+        }
+
+        emailjs.init(PUBLIC_KEY);
+
+        const submitButton = form.querySelector("button");
+
         const templateParams = {
-            from_name: form.name.value,
-            from_email: form.email.value,
-            message: form.message.value
+            from_name: name.value,
+            from_email: email.value,
+            message: message.value
         };
 
         if (submitButton) {
@@ -267,9 +248,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
-            .then(function (response) {
-                console.log("Email sent successfully", response);
-
+            .then(function () {
                 if (messageBox) {
                     messageBox.innerText = "Message sent successfully!";
                     messageBox.style.color = "green";
@@ -278,9 +257,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 form.reset();
             })
-            .catch(function (error) {
-                console.log("Error sending email", error);
-
+            .catch(function () {
                 if (messageBox) {
                     messageBox.innerText = "Failed to send message. Try again.";
                     messageBox.style.color = "red";
