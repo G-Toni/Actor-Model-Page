@@ -4,407 +4,697 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerson Toni</title>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="./assets/favicon/site.webmanifest">
     <link rel="stylesheet" href="style.css">
 </head>
-<body> 
+<body>
+    <section class="banner">
+        <header>
+            <div class="hero">
 
-<section class="banner">
-    <header>
-        <div class="hero">
+                <!-- OLD LOCAL VIDEO - KEEP FOR BACKUP -->
+                <!-- <video autoplay loop muted playsinline class="back-video">
+                    <source src="./assets/videos/No Way Back - Final Cut & Post Production - Edit By Philip Condron.mp4" type="video/mp4">
+                </video> -->
 
-            <!-- OLD LOCAL VIDEO - KEEP FOR BACKUP
-            <video autoplay loop muted playsinline class="back-video">
-                <source src="./assets/videos/No Way Back - Final Cut & Post Production - Edit By Philip Condron.mp4" type="video/mp4">
-            </video>
-            -->
+                <video autoplay loop muted playsinline class="back-video" id="hero-video" preload="metadata">
+                    <source src="https://gersontoni.sirv.com/videos/No%20Way%20Back%20-%20Final%20Cut%20%26%20Post%20Production%20-%20Edit%20By%20Philip%20Condron.mp4" type="video/mp4">
+                </video>
 
-            <video autoplay loop muted playsinline class="back-video" id="hero-video" preload="metadata">
-                <source src="https://gersontoni.sirv.com/videos/No%20Way%20Back%20-%20Final%20Cut%20%26%20Post%20Production%20-%20Edit%20By%20Philip%20Condron.mp4" type="video/mp4">
-            </video>
-
-            <button id="muteToggle" class="mute-button" type="button">🔊 Unmute</button>
-
-            <nav>
-                <div class="menu-toggle" id="menu-toggle">☰</div>
-
-                <ul class="logo-responsive">
-                    <li class="logo"><a href="resume.html" target="_blank">Gerson Toni</a></li>
-                </ul>
-
-                <div class="nav-items" id="nav-items">
-                    <ul>
-                        <li class="logo"><a href="resume.html" target="_blank">Gerson Toni</a></li>
-                        <li><a href="">Home</a></li>
-                        <li><a href="#about-me">About me</a></li>
-                        <li><a href="gallery.html" target="_blank">Gallery</a></li>
-                        <li><a href="#video-gallery">Videos</a></li>
-                        <li><a href="resume.html" target="_blank">Resume</a></li>
+                <nav>
+                    <div class="menu-toggle" id="menu-toggle">☰</div>
+                    <ul class="logo-responsive">
+                        <li class="logo">
+                            <a href="resume.html" target="_blank">
+                                <span>GERSON</span>
+                                <span class="color-details">TONI</span>
+                            </a>
+                        </li>
                     </ul>
+                    <div class="nav-items" id="nav-items">
+                        <ul>
+                            <li class="logo">
+                                <a href="resume.html" target="_blank">
+                                    <span>GERSON</span>
+                                    <span class="color-details">TONI</span>
+                                </a>
+                            </li>
+                            <li><a href="">HOME</a></li>
+                            <li><a href="#about-me">ABOUT</a></li>
+                            <li><a href="gallery.html" target="_blank">GALLERY</a></li>
+                            <li><a href="#video-library">VIDEOS</a></li>
+                            <li><a href="resume.html" target="_blank">RESUME</a></li>
+                            <li><a href="#contact-me">CONTACT</a></li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <div class="hero-cinematic-content">
+                    <h1>Gerson Toni</h1>
+                    <h2>Actor &middot; Action Performer &middot; Stunt Artist</h2>
+                    <p class="hero-description">Available for film, television &amp; commercial work — based in Dublin, working worldwide.</p>
+
+                    <div class="hero-buttons">
+                        <a href="#video-library" class="hero-btn hero-btn-primary">&#9654; Watch Showreel</a>
+                        <a href="./assets/Actor-Model CV Updated.pdf" download="Gerson_Toni_CV.pdf" class="hero-btn hero-btn-outline">Download CV</a>
+                        <a href="#contact-me" class="hero-btn hero-btn-outline">Contact</a>
+
+                        <button id="muteToggle" class="mute-button" type="button" aria-label="Unmute video">
+                            <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+                            <svg class="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </section>
+    <section class="default dark">
+        <div id="about-me"></div>
+        <div class="section-desc">Who am I?</div>
+        <div class="section-title">About me</div>
+        <div class="custom-separator"></div>
+        <div class="section-body">
+            <div class="section-aboutus">
+                <p>
+                    From the moment I stepped onto the stage in my very first acting class, I knew that I had found my true calling. 
+                    There was something electric in the air, something that connected me to a world far greater than myself. 
+                    It was as if every fiber of my being was awakened to the incredible power of storytelling.
+                </p>
+                <p>
+                    Acting became more than just a passion — it became my purpose. Every scene I perform, every character I embody, 
+                    takes me on a journey of self-discovery and growth.
+                </p>
+                <p>
+                    Since that first fateful class, I’ve poured every ounce of my energy into perfecting my craft. 
+                    I’ve embraced the countless hours of rigorous training and continue to grow as a performer.
+                </p>
+                <p class="info-about-me">
+                    Through this journey, I’ve come to realize that acting is a constant evolution. There’s always something more to learn, 
+                    a new layer to peel back, and a fresh perspective to gain.
+                </p>
+                <p class="info-about-me">
+                    In every performance, I strive to not only entertain but to ignite something in the audience.
+                </p>
+                <small id="btn-more-info">Show more</small>
+                <!-- <a href="#contact-me" class="button">Contact me!</a> -->
+            </div>
+
+            <div class="section-aboutus--right">
+                <img src="./assets/images/OfficialPoster.jpeg" alt="Gerson Toni Poster">
+            </div>
+        </div>
+    </section>
+    <div class="cv-container">
+        <!-- <h1 class="cv-title">Gerson Toni</h1> -->
+        <div class="section-desc">Training, Credits & Special Skills</div>
+        <div class="section-title">MY EXPERIENCE</div>
+        <div class="custom-separator"></div>
+        <div class="cv-columns">
+            <div class="cv-column">
+                <div class="section">
+                    <h2>Education</h2>
+                    <p><strong>- The Gaiety School of Acting - Acting for Camera 1,2,3 (2024-2025)</strong></p>
+                    <p><strong>- CCT College - Bachelor in Computer Science (Graduated with Honors)</strong></p>
                 </div>
 
-                <div class="rightside">
-                    <a href="#contact-me" class="button">Contact</a>
+                <div class="section">
+                    <h2>Film, TV, and Voice Credits</h2>
+                    <p><strong>- 12 Days for Christmas - Beefy Santa (2025)</strong></p>
+                    <p><strong>- Wednesday - Teacher (2024)</strong></p>
+                    <p><strong>- Power Ballad - Security/Party Guest (2024)</strong></p>
+                    <p><strong>- Sanctuary - Adm Staff (2024)</strong></p>
                 </div>
-            </nav>
-
-            <div class="content">
-                <h1>Actor/Model</h1>
-                <a href="#contact-me" class="button">Hire me!</a>
             </div>
+            <div class="cv-column">
+                <div class="section">
+                    <h2>Training & Workshops</h2>
+                    <p><strong>- EBSSA Instruction - Longform Course - Combined Firearms Course (2025)</strong></p>
+                    <p><strong>- Victorious - IDCA Unarmed Stage Combat (2025)</strong></p>
+                </div>
 
-        </div>
-    </header>
-</section>
-
-
-<section class="default light">
-    <div id="about-me"></div>
-    <div class="section-title">About me</div>
-    <div class="section-desc">Who am I?</div>
-
-    <div class="section-body">
-        <div class="section-aboutus">
-            <p>
-                From the moment I stepped onto the stage in my very first acting class, I knew that I had found my true calling. 
-                There was something electric in the air, something that connected me to a world far greater than myself. 
-                It was as if every fiber of my being was awakened to the incredible power of storytelling.
-            </p>
-
-            <p>
-                Acting became more than just a passion — it became my purpose. Every scene I perform, every character I embody, 
-                takes me on a journey of self-discovery and growth.
-            </p>
-
-            <p>
-                Since that first fateful class, I’ve poured every ounce of my energy into perfecting my craft. 
-                I’ve embraced the countless hours of rigorous training and continue to grow as a performer.
-            </p>
-
-            <p class="info-about-me">
-                Through this journey, I’ve come to realize that acting is a constant evolution. There’s always something more to learn, 
-                a new layer to peel back, and a fresh perspective to gain.
-            </p>
-
-            <p class="info-about-me">
-                In every performance, I strive to not only entertain but to ignite something in the audience.
-            </p>
-
-            <small id="btn-more-info">Show more</small>
-            <a href="#contact-me" class="button">Contact me!</a>
-        </div>
-
-        <div class="section-aboutus--right">
-            <img src="./assets/images/OfficialPoster.jpeg" alt="Gerson Toni Poster">
-        </div>
-    </div>
-</section>
-
-
-<div class="cv-container">
-    <h1 class="cv-title">Gerson Toni</h1>
-
-    <div class="cv-columns">
-        <div class="cv-column">
-            <div class="section">
-                <h2>Education</h2>
-                <p><strong>The Gaiety School of Acting - Acting for Camera 1,2,3 (2024-2025)</strong></p>
-                <p><strong>CCT College - Bachelor in Computer Science (Graduated with Honors)</strong></p>
-            </div>
-
-            <div class="section">
-                <h2>Film, TV, and Voice Credits</h2>
-                <p><strong>12 Days for Christmas - Beefy Santa (2025)</strong></p>
-                <p><strong>Wednesday - Teacher (2024)</strong></p>
-                <p><strong>Power Ballad - Security/Party Guest (2024)</strong></p>
-                <p><strong>Sanctuary - Adm Staff (2024)</strong></p>
+                <div class="section">
+                    <h2>Special Skills</h2>
+                    <p><strong>- Fluent in English, Spanish, Italian, and Portuguese</strong></p>
+                    <p><strong>- Firearms Specialist: AK47, Glock 17, CZ75/99</strong></p>
+                    <p><strong>- Expert Martial Artist: Brazilian Jiu-Jitsu, Capoeira, Boxing</strong></p>
+                    <p><strong>- Sports: Gym, Running, Swimming</strong></p>
+                    <p><strong>- Dance: Salsa, Bachata, Samba</strong></p>
+                    <p><strong>- Full International Driving License: Category A/B</strong></p>
+                </div>
             </div>
         </div>
-
-        <div class="cv-column">
-            <div class="section">
-                <h2>Training & Workshops</h2>
-                <p><strong>EBSSA Instruction - Longform Course - Combined Firearms Course (2025)</strong></p>
-                <p><strong>Victorious - IDCA Unarmed Stage Combat (2025)</strong></p>
+        <div class="cv-contact">
+            <!-- <h2>Contact</h2>
+            <p>Email: <a href="mailto:contact@gersontoni.com" class="custom-link-contact">contact@gersontoni.com</a></p>
+            <p>Management Jeny Poquet: <a href="mailto:info@jenypoquetagent.com" class="custom-link-contact">info@jenypoquetagent.com</a></p>
+            <p>Instagram: <a href="https://instagram.com/gerson_toni" class="custom-link-contact" target="_blank">@gerson_toni</a></p> -->
+            <a href="./assets/Actor-Model CV Updated.pdf" download="Gerson_Toni_CV.pdf" target="_blank" id="download-btn">&#11123; Download CV</a>
+        </div>
+    </div>
+    <section class="default dark credits-section">
+        <div class="section-desc">IMDbPro-Style Layout</div>
+        <div class="section-title">Film &amp; Television Credits</div>
+        <div class="custom-separator"></div>
+        <div class="credits-grid">
+            <div class="credit-card">
+                <div class="credit-image">
+                    <img src="./assets/images/img-NoWayBack.jpg" alt="No Way Back">
+                </div>
+                <div class="credit-meta">2026 &middot; Short Film &middot; Ireland</div>
+                <div class="credit-title">No Way Back</div>
+                <div class="credit-subtitle">Lead / Stunt Performer</div>
+                <div class="credit-sep"></div>
+                <p class="credit-desc">Independent action drama — released 2026.</p>
             </div>
 
-            <div class="section">
-                <h2>Special Skills</h2>
-                <p><strong>Fluent in English, Spanish, Italian, and Portuguese</strong></p>
-                <p><strong>Firearms Specialist: AK47, Glock 17, CZ75/99</strong></p>
-                <p><strong>Expert Martial Artist: Brazilian Jiu-Jitsu, Capoeira, Boxing</strong></p>
-                <p><strong>Sports: Gym, Running, Swimming</strong></p>
-                <p><strong>Dance: Salsa, Bachata, Samba</strong></p>
-                <p><strong>Full International Driving License: Category A/B</strong></p>
+            <div class="credit-card">
+                <div class="credit-image">
+                    <img src="./assets/images/sport-1.jpg" alt="Untitled Crime Series">
+                </div>
+                <div class="credit-meta">2025 &middot; Television &middot; In development</div>
+                <div class="credit-title">Untitled Crime Series</div>
+                <div class="credit-subtitle">Supporting &middot; Detective</div>
+                <div class="credit-sep"></div>
+                <p class="credit-desc">Representative TV credit layout.</p>
+            </div>
+
+            <div class="credit-card">
+                <div class="credit-image">
+                    <img src="./assets/images/sport-1.jpg" alt="Night Run">
+                </div>
+                <div class="credit-meta">2025 &middot; Feature / Commercial</div>
+                <div class="credit-title">Night Run</div>
+                <div class="credit-subtitle">Principal &middot; Action</div>
+                <div class="credit-sep"></div>
+                <p class="credit-desc">Sample feature &amp; campaign placement.</p>
             </div>
         </div>
-    </div>
+    </section>
+    <section class="default dark testimonials-section">
+        <div class="testimonials-bg" style="background-image:url('./assets/images/FireArm3.jpeg');"></div>
+        <div class="testimonials-overlay"></div>
 
-    <div class="cv-contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:gerson210485@gmail.com" class="custom-link-contact">gerson210485@gmail.com</a></p>
-        <p>Management Jeny Poquet: <a href="mailto:info@laklaketa.com" class="custom-link-contact">info@laklaketa.com</a></p>
-        <p>Instagram: <a href="https://instagram.com/gerson_toni" class="custom-link-contact" target="_blank">@gerson_toni</a></p>
-        <a href="./assets/Actor-Model CV Updated.pdf" download="Gerson_Toni_CV.pdf" target="_blank" id="download-btn">📄 Download CV</a>
-    </div>
-</div>
+        <div class="testimonials-content">
+            <div class="section-desc">Professional References</div>
+            <div class="section-title">Testimonials</div>
+            <div class="custom-separator"></div>
 
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote-mark">&ldquo;</div>
+                    <p class="testimonial-text">A natural on set — disciplined, fearless in action work and completely present in the dramatic beats. A director's dream.</p>
+                    <div class="testimonial-sep"></div>
+                    <div class="testimonial-author">Film Director</div>
+                    <div class="testimonial-role">Feature Drama</div>
+                </div>
 
-<section class="image-gallery">
-    <h2>Photo Gallery</h2>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote-mark">&ldquo;</div>
+                    <p class="testimonial-text">He treats every take like the first. Reliable under pressure and brilliant with stunt teams — exactly who you want on a tight schedule.</p>
+                    <div class="testimonial-sep"></div>
+                    <div class="testimonial-author">Producer</div>
+                    <div class="testimonial-role">Action Series</div>
+                </div>
 
-    <div class="image-grid">
-        <div class="image-item"><img src="./assets/images/Headshot.jpeg" alt="Headshot" onclick="openLightbox(this)"></div>
-        <div class="image-item"><img src="./assets/images/profile.jpg" alt="Profile" onclick="openLightbox(this)"></div>
-        <div class="image-item"><img src="./assets/images/Tattoo.jpg" alt="Tattoo" onclick="openLightbox(this)"></div>
-        <div class="image-item"><img src="./assets/images/formal.jpg" alt="Formal" onclick="openLightbox(this)"></div>
-        <div class="image-item"><img src="./assets/images/sport-6.jpg" alt="Sport" onclick="openLightbox(this)"></div>
-        <div class="image-item"><img src="./assets/images/FireArm2.jpeg" alt="Firearm" onclick="openLightbox(this)"></div>
-        <div class="image-item"><img src="./assets/images/FireArm3.jpeg" alt="Firearm" onclick="openLightbox(this)"></div>
-        <div class="image-item"><img src="./assets/images/FireArm.jpeg" alt="Firearm" onclick="openLightbox(this)"></div>
-        <div class="image-item"><img src="./assets/images/FireArm4.jpeg" alt="Firearm" onclick="openLightbox(this)"></div>
-        <div class="image-item"><img src="./assets/images/FireArm6.jpeg" alt="Firearm" onclick="openLightbox(this)"></div>
-        <div class="image-item"><img src="./assets/images/OfficialPoster.jpeg" alt="Official Poster" onclick="openLightbox(this)"></div>
-        <div class="image-item"><img src="./assets/images/No Way Back - Group Poster.jpeg" alt="No Way Back Poster" onclick="openLightbox(this)"></div>
-        <div class="image-item"><img src="./assets/images/Gerson - Lucas.jpeg" alt="Scene Photo" onclick="openLightbox(this)"></div>
-        <div class="image-item"><img src="./assets/images/Gerson - Lucas 2.jpeg" alt="Scene Photo" onclick="openLightbox(this)"></div>
-        <div class="image-item"><img src="./assets/images/Fighting.JPG" alt="Fighting" onclick="openLightbox(this)"></div>
-        <div class="image-item"><img src="./assets/images/sport-2.jpg" alt="Sport" onclick="openLightbox(this)"></div>
-        <div class="image-item"><img src="./assets/images/sport-3.jpg" alt="Sport" onclick="openLightbox(this)"></div>
-        <div class="image-item"><img src="./assets/images/sport-4.jpg" alt="Sport" onclick="openLightbox(this)"></div>
-        <div class="image-item"><img src="./assets/images/sport-5.jpg" alt="Sport" onclick="openLightbox(this)"></div>
-        <div class="image-item"><img src="./assets/images/sport-1.jpg" alt="Sport" onclick="openLightbox(this)"></div>
-        <div class="image-item"><img src="./assets/images/Tattoo5.jpg" alt="Tattoo" onclick="openLightbox(this)"></div>
-        <div class="image-item"><img src="./assets/images/Tattoo3.jpg" alt="Tattoo" onclick="openLightbox(this)"></div>
-        <div class="image-item"><img src="./assets/images/show-2.jpg" alt="Show" onclick="openLightbox(this)"></div>
-        <div class="image-item"><img src="./assets/images/best-doctors.jpg" alt="Commercial" onclick="openLightbox(this)"></div>
-        <div class="image-item"><img src="./assets/images/aviva-care-hero-tadhg.$16x9-mobile-lg-4cols$.jpg" alt="Commercial" onclick="openLightbox(this)"></div>
-    </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote-mark">&ldquo;</div>
+                    <p class="testimonial-text">Rare range. He moves between vulnerability and pure intensity with total control. His instinct for character is exceptional.</p>
+                    <div class="testimonial-sep"></div>
+                    <div class="testimonial-author">Acting Coach</div>
+                    <div class="testimonial-role">Studio Programme</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="default dark library-section" id="photo-library">
+        <div class="section-desc">Gallery &middot; Categorised</div>
+        <div class="section-title">Photo Library</div>
+        <div class="custom-separator"></div>
+        <p class="library-desc">Five curated categories — click a category to see the photos inside.</p>
 
-    <button class="load-more-btn">Load More</button>
-    <button class="download-all-btn" onclick="downloadAllImages()">Download All</button>
+        <div class="photo-masonry" id="photo-categories">
+            <div class="lib-card cat-profile" data-category="profile">
+                <img src="./assets/images/Headshot.jpeg" alt="Profile">
+                <div class="lib-card-overlay"></div>
+                <div class="lib-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                </div>
+                <div class="lib-label"><span class="lib-name">Profile</span><span class="lib-sub">Headshots</span></div>
+            </div>
 
-    <div id="lightbox" class="lightbox">
-        <span class="close" onclick="closeLightbox()">&times;</span>
-        <img id="lightbox-img" src="" alt="Preview">
-        <a id="download-btn" download>Download</a>
-    </div>
-</section>
+            <div class="lib-card cat-sports" data-category="sports">
+                <img src="./assets/images/sport-1.jpg" alt="Sports">
+                <div class="lib-card-overlay"></div>
+                <div class="lib-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                </div>
+                <div class="lib-label"><span class="lib-name">Sports</span><span class="lib-sub">Athletic</span></div>
+            </div>
 
+            <div class="lib-card cat-commercials" data-category="commercials">
+                <img src="./assets/images/best-doctors.jpg" alt="Commercials">
+                <div class="lib-card-overlay"></div>
+                <div class="lib-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                </div>
+                <div class="lib-label"><span class="lib-name">Commercials</span><span class="lib-sub">Brand</span></div>
+            </div>
 
-<section class="video-gallery" id="video-gallery">
-    <h2>🎬 Videos Gallery</h2>
+            <div class="lib-card cat-movies" data-category="movies">
+                <img src="./assets/images/OfficialPoster.jpeg" alt="Movies">
+                <div class="lib-card-overlay"></div>
+                <div class="lib-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                </div>
+                <div class="lib-label"><span class="lib-name">Movies</span><span class="lib-sub">Stills</span></div>
+            </div>
 
-    <div id="video-loader">Loading videos...</div>
-
-    <div class="video-grid" id="video-grid-box" style="display:none;">
-
-        <div class="video-item video-mp4">
-            <video controls muted playsinline preload="metadata">
-                <source src="https://gersontoni.sirv.com/videos/No%20Way%20Back%20-%20Final%20Cut%20%26%20Post%20Production%20-%20Edit%20By%20Philip%20Condron.mp4" type="video/mp4">
-            </video>
+            <div class="lib-card cat-action" data-category="action">
+                <img src="./assets/images/FireArm2.jpeg" alt="Action Scenes">
+                <div class="lib-card-overlay"></div>
+                <div class="lib-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                </div>
+                <div class="lib-label"><span class="lib-name">Action Scenes</span><span class="lib-sub">On Set</span></div>
+            </div>
         </div>
 
-        <div class="video-item video-mp4">
-            <video controls muted playsinline preload="metadata">
-                <source src="https://gersontoni.sirv.com/videos/STAFF%20ROOM%20Pilot%20Trailer%20-%20Jintonika%20Entertainment%20(1080p).mp4" type="video/mp4">
-            </video>
+        <div class="library-expanded" id="photo-expanded">
+            <div class="library-expanded-header">
+                <h3 id="photo-expanded-title">Category</h3>
+                <button class="library-close-btn" onclick="closePhotoCategory()">Close &times;</button>
+            </div>
+            <div class="expanded-photo-grid" id="photo-expanded-grid"></div>
         </div>
 
-        <div class="video-item video-mp4">
-            <video controls muted playsinline preload="metadata">
-                <source src="https://gersontoni.sirv.com/videos/Gerson%26Camila-ShowReel.mp4" type="video/mp4">
-            </video>
+        <div id="lightbox" class="lightbox">
+            <span class="close" onclick="closeLightbox()">&times;</span>
+            <img id="lightbox-img" src="" alt="Preview">
+            <a id="lightbox-download-btn" download>Download</a>
+        </div>
+    </section>
+
+
+    <section class="default dark library-section" id="video-library">
+        <div class="section-desc">Watch &middot; Categorised</div>
+        <div class="section-title">Video Library</div>
+        <div class="custom-separator"></div>
+        <p class="library-desc">Six categories — every clip a click away.</p>
+
+        <div class="video-categories" id="video-categories">
+            <div class="lib-card video-card" data-category="showreel">
+                <img src="./assets/images/Headshot.jpeg" alt="Showreel">
+                <div class="lib-card-overlay"></div>
+                <div class="lib-icon lib-icon-play">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                </div>
+                <div class="lib-label"><span class="lib-name">Showreel</span><span class="lib-sub">Reel</span></div>
+            </div>
+
+            <div class="lib-card video-card" data-category="scenes">
+                <img src="./assets/images/Gerson - Lucas.jpeg" alt="Scene Work">
+                <div class="lib-card-overlay"></div>
+                <div class="lib-icon lib-icon-play">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                </div>
+                <div class="lib-label"><span class="lib-name">Scene Work</span><span class="lib-sub">Drama</span></div>
+            </div>
+
+            <div class="lib-card video-card" data-category="action">
+                <img src="./assets/images/FireArm3.jpeg" alt="Action &amp; Combat">
+                <div class="lib-card-overlay"></div>
+                <div class="lib-icon lib-icon-play">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                </div>
+                <div class="lib-label"><span class="lib-name">Action &amp; Combat</span><span class="lib-sub">Fight</span></div>
+            </div>
+
+            <div class="lib-card video-card" data-category="training">
+                <img src="./assets/images/sport-3.jpg" alt="Stunt Training">
+                <div class="lib-card-overlay"></div>
+                <div class="lib-icon lib-icon-play">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                </div>
+                <div class="lib-label"><span class="lib-name">Stunt Training</span><span class="lib-sub">BTS</span></div>
+            </div>
+
+            <div class="lib-card video-card" data-category="commercials">
+                <img src="./assets/images/formal.jpg" alt="Commercials">
+                <div class="lib-card-overlay"></div>
+                <div class="lib-icon lib-icon-play">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                </div>
+                <div class="lib-label"><span class="lib-name">Commercials</span><span class="lib-sub">Brand</span></div>
+            </div>
+
+            <div class="lib-card video-card" data-category="filmtv">
+                <img src="./assets/images/OfficialPoster.jpeg" alt="Film &amp; TV">
+                <div class="lib-card-overlay"></div>
+                <div class="lib-icon lib-icon-play">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                </div>
+                <div class="lib-label"><span class="lib-name">Film &amp; TV</span><span class="lib-sub">Feature</span></div>
+            </div>
         </div>
 
-        <div class="video-item video-mp4">
-            <video controls muted playsinline preload="metadata">
-                <source src="https://gersontoni.sirv.com/videos/ShootingActionClip.mp4" type="video/mp4">
-            </video>
+        <div class="library-expanded" id="video-expanded">
+            <div class="library-expanded-header">
+                <h3 id="video-expanded-title">Category</h3>
+                <button class="library-close-btn" onclick="closeVideoCategory()">Close &times;</button>
+            </div>
+            <div class="expanded-video-grid" id="video-expanded-grid"></div>
         </div>
 
-        <div class="video-item video-mp4">
-            <video controls muted playsinline preload="metadata">
-                <source src="https://gersontoni.sirv.com/videos/Heineken%C2%AE%200.0%20Campaing.mp4" type="video/mp4">
-            </video>
+        <div id="video-lightbox" class="lightbox">
+            <span class="close" onclick="closeVideoLightbox()">&times;</span>
+            <div id="video-lightbox-content"></div>
+            <a id="download-video-btn" href="#" download class="download-btn">⬇ Download</a>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact-me">
+        <div class="contact-hero">
+            <div class="contact-hero-bg" style="background-image:url('./assets/images/img-bg-contact.png');"></div>
+            <div class="contact-hero-overlay"></div>
+            <div class="contact-hero-content">
+                <div class="contact-kicker">Get In Touch</div>
+                <h2 class="contact-hero-title">Let's Work Together</h2>
+                <div class="contact-underline"></div>
+                <p class="contact-hero-sub">Based in Dublin, Ireland &middot; Available worldwide for film, television &amp; commercial work.</p>
+            </div>
         </div>
 
-        <div class="video-item video-mp4">
-            <video controls muted playsinline preload="metadata">
-                <source src="https://gersontoni.sirv.com/videos/StenaLine%20Commercial.mp4" type="video/mp4">
-            </video>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h3>Direct Contact</h3>
+
+                <div class="contact-row">
+                    <span class="contact-label">Email</span>
+                    <a href="mailto:contact@gersontoni.com" class="contact-value">contact@gersontoni.com</a>
+                </div>
+                <div class="contact-row">
+                    <span class="contact-label">Instagram</span>
+                    <a href="https://www.instagram.com/gerson_toni?igsh=MW10Ymt2bHgzaXRqZA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="contact-value">@gerson_toni</a>
+                </div>
+                <div class="contact-row">
+                    <span class="contact-label">LinkedIn</span>
+                    <a href="https://www.linkedin.com/in/gerson-toni?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener noreferrer" class="contact-value">in/gerson-toni</a>
+                </div>
+                <div class="contact-row">
+                    <span class="contact-label">IMDb</span>
+                    <a href="https://www.imdb.com/find/?q=Gerson%20Toni" target="_blank" rel="noopener noreferrer" class="contact-value">imdb &middot; Gerson Toni</a>
+                </div>
+            </div>
+
+            <div class="contact-card contact-form-card">
+                <h3>Send A Message</h3>
+                <p class="contact-form-sub">Management &middot; Jeny Poquet &middot; <a href="mailto:info@jenypoquetagent.com" class="contact-inline-link">info@jenypoquetagent.com</a></p>
+
+                <form id="contact-form" name="contact" method="POST" data-netlify="true">
+                    <input type="hidden" name="form-name" value="contact">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit" class="button">Send Message</button>
+                </form>
+
+                <div class="success-message"></div>
+            </div>
         </div>
+    </section>
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a href="" class="footer-logo">
+                    <span>GERSON</span>
+                    <span class="color-details">TONI</span>
+                </a>
+                <p class="footer-tagline">Actor &middot; Action Performer &middot; Stunt Artist<br>Based in Dublin, working worldwide.</p>
+            </div>
 
-        <div class="video-item video-mp4">
-            <video controls muted playsinline preload="metadata">
-                <source src="https://gersontoni.sirv.com/videos/TheTenthMan%20X%20Rockshore%20Commercial.mp4" type="video/mp4">
-            </video>
-        </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#about-me">About</a></li>
+                    <li><a href="gallery.html" target="_blank">Gallery</a></li>
+                    <li><a href="#video-library">Videos</a></li>
+                    <li><a href="resume.html" target="_blank">Resume</a></li>
+                    <li><a href="#contact-me">Contact</a></li>
+                </ul>
+            </div>
 
-        <div class="video-item video-mp4">
-            <video controls muted playsinline preload="metadata">
-                <source src="https://gersontoni.sirv.com/videos/Rockshore%20Beer%20Campaing.mov" type="video/mp4">
-            </video>
-        </div>
-
-        <div class="video-item video-mp4">
-            <video controls muted playsinline preload="metadata">
-                <source src="https://gersontoni.sirv.com/videos/Aviva%20Care%20-%20Protection%20from%20Aviva.mp4" type="video/mp4">
-            </video>
-        </div>
-
-        <div class="video-item video-mp4">
-            <video controls muted playsinline preload="metadata">
-                <source src="https://gersontoni.sirv.com/videos/CarterHire%20Campaing.mp4" type="video/mp4">
-            </video>
-        </div>
-
-        <div class="video-item video-mp4">
-            <video controls muted playsinline preload="metadata">
-                <source src="https://gersontoni.sirv.com/videos/Fighting%20with%20Spear.mp4" type="video/mp4">
-            </video>
-        </div>
-
-        <div class="video-item video-mp4">
-            <video controls muted playsinline preload="metadata">
-                <source src="https://gersontoni.sirv.com/videos/Sword%2BSpearTraining.mp4" type="video/mp4">
-            </video>
-        </div>
-
-        <div class="video-item video-mp4">
-            <video controls muted playsinline preload="metadata">
-                <source src="https://gersontoni.sirv.com/videos/Gerson%20Toni%20-%20Escena.mp4" type="video/mp4">
-            </video>
-        </div>
-
-        <div class="video-item video-mp4">
-            <video controls muted playsinline preload="metadata">
-                <source src="https://gersontoni.sirv.com/videos/The-Equalizer-Scene.mp4" type="video/mp4">
-            </video>
-        </div>
-
-        <div class="video-item video-mp4">
-            <video controls muted playsinline preload="metadata">
-                <source src="https://gersontoni.sirv.com/videos/American-Gangster-Scene.mp4" type="video/mp4">
-            </video>
-        </div>
-
-        <div class="video-item video-mp4">
-            <video controls muted playsinline preload="metadata">
-                <source src="https://gersontoni.sirv.com/videos/%F0%9F%8E%A5%20STAGE%20COMBAT%20%E2%9A%94%EF%B8%8F%20Hobbs%20vs%20S.mp4" type="video/mp4">
-            </video>
-        </div>
-
-        <div class="video-item video-mp4">
-            <video controls muted playsinline preload="metadata">
-                <source src="https://gersontoni.sirv.com/videos/Rapier%20%26%20Dagger.mp4" type="video/mp4">
-            </video>
-        </div>
-
-        <div class="video-item video-mp4">
-            <video controls muted playsinline preload="metadata">
-                <source src="https://gersontoni.sirv.com/videos/Backflip.mov" type="video/mp4">
-            </video>
-        </div>
-
-        <div class="video-item video-mp4">
-            <video controls muted playsinline preload="metadata">
-                <source src="https://gersontoni.sirv.com/videos/Playing%20Football.mp4" type="video/mp4">
-            </video>
-        </div>
-
-        <div class="video-item video-mp4">
-            <video controls muted playsinline preload="metadata">
-                <source src="https://gersontoni.sirv.com/videos/Skydiving.mp4" type="video/mp4">
-            </video>
-        </div>
-
-        <div class="video-item video-mp4">
-            <video controls muted playsinline preload="metadata">
-                <source src="https://gersontoni.sirv.com/videos/Boxing%20Training.mp4" type="video/mp4">
-            </video>
-        </div>
-
-    </div>
-
-    <button class="load-more-videos-btn">Load More</button>
-
-    <div id="video-lightbox" class="lightbox">
-        <span class="close" onclick="closeVideoLightbox()">×</span>
-        <div id="video-lightbox-content"></div>
-        <a id="download-video-btn" href="#" download class="download-btn">⬇ Download</a>
-    </div>
-</section>
-
-
-<div class="contact-me">
-    <h2>Contact Me</h2>
-    <div id="contact-me" class="section"></div>
-
-    <form id="contact-form" name="contact" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="contact">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-        <button type="submit" class="button">Send Message</button>
-    </form>
-
-    <div class="success-message"></div>
-</div>
-
-
-<footer>
-    <div class="container" id="footer-container">
-        <div class="logo">
-            <a href="">Gerson Toni</a>
-        </div>
-
-        <div class="footer--area">
-            <div class="footer--item area1">
+            <div class="footer-social-block">
+                <h3>Follow</h3>
                 <div class="footer-social">
-                    <a href=""><img src="./assets/images/Icons/facebook.png" alt="Facebook"></a>
-                    <a href=""><img src="./assets/images/Icons/googleplus.png" alt="Google Plus"></a>
-                    <a href=""><img src="./assets/images/Icons/linkedin.png" alt="LinkedIn"></a>
-                    <a href=""><img src="./assets/images/Icons/pinterest.png" alt="Pinterest"></a>
-                    <a href=""><img src="./assets/images/Icons/twitter.png" alt="Twitter"></a>
+                    <a href="https://www.instagram.com/gerson_toni?igsh=MW10Ymt2bHgzaXRqZA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="https://www.facebook.com/share/1BRkyFXoSG/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
+                    <a href="https://youtube.com/@gersonantonio2660?si=al55UHyCdwmf0pq1" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/gerson-toni?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </a>
                 </div>
             </div>
-
-            <div class="copyrights">
-                Copyright 2026 © Created by Gerson Toni. <a href="">All the Rights Reserved</a>.
-            </div>
         </div>
-    </div>
-</footer>
 
+        <div class="footer-bottom">
+            <p>Copyright 2026 &copy; Created by Gerson Toni. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        const toggleBtn = document.getElementById("menu-toggle");
+        const navItems = document.getElementById("nav-items");
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="script.js"></script>
+        if (toggleBtn && navItems) {
+            toggleBtn.addEventListener("click", function () {
+                navItems.classList.toggle("show");
+            });
+        }
 
-<script>
-    const toggleBtn = document.getElementById("menu-toggle");
-    const navItems = document.getElementById("nav-items");
+        $("#btn-more-info").on("click", function () {
+            $(".info-about-me").slideToggle();
 
-    if (toggleBtn && navItems) {
-        toggleBtn.addEventListener("click", function () {
-            navItems.classList.toggle("show");
+            const isVisible = $(".info-about-me").is(":visible");
+            $(this).text(isVisible ? "Show less" : "Show more");
         });
-    }
 
-    $("#btn-more-info").on("click", function () {
-        $(".info-about-me").slideToggle();
+        /* ==============================
+        PHOTO & VIDEO LIBRARY (Categorised)
+        ============================== */
 
-        const isVisible = $(".info-about-me").is(":visible");
-        $(this).text(isVisible ? "Show less" : "Show more");
-    });
+        const photoLibrary = {
+            profile: {
+                name: "Profile",
+                sub: "Headshots",
+                images: [
+                    "./assets/images/Headshot.jpeg",
+                    "./assets/images/profile.jpg",
+                    "./assets/images/formal.jpg",
+                    "./assets/images/Tattoo.jpg",
+                    "./assets/images/Tattoo3.jpg",
+                    "./assets/images/Tattoo5.jpg"
+                ]
+            },
+            sports: {
+                name: "Sports",
+                sub: "Athletic",
+                images: [
+                    "./assets/images/sport-1.jpg",
+                    "./assets/images/sport-2.jpg",
+                    "./assets/images/sport-3.jpg",
+                    "./assets/images/sport-4.jpg",
+                    "./assets/images/sport-5.jpg",
+                    "./assets/images/sport-6.jpg"
+                ]
+            },
+            commercials: {
+                name: "Commercials",
+                sub: "Brand",
+                images: [
+                    "./assets/images/best-doctors.jpg",
+                    "./assets/images/aviva-care-hero-tadhg.$16x9-mobile-lg-4cols$.jpg"
+                ]
+            },
+            movies: {
+                name: "Movies",
+                sub: "Stills",
+                images: [
+                    "./assets/images/OfficialPoster.jpeg",
+                    "./assets/images/No Way Back - Group Poster.jpeg",
+                    "./assets/images/Gerson - Lucas.jpeg",
+                    "./assets/images/Gerson - Lucas 2.jpeg",
+                    "./assets/images/show-2.jpg"
+                ]
+            },
+            action: {
+                name: "Action Scenes",
+                sub: "On Set",
+                images: [
+                    "./assets/images/FireArm2.jpeg",
+                    "./assets/images/FireArm3.jpeg",
+                    "./assets/images/FireArm.jpeg",
+                    "./assets/images/FireArm4.jpeg",
+                    "./assets/images/FireArm6.jpeg",
+                    "./assets/images/Fighting.JPG"
+                ]
+            }
+        };
 
-    window.addEventListener("load", function () {
-        const loader = document.getElementById("video-loader");
-        const videoGrid = document.getElementById("video-grid-box");
+        const videoLibrary = {
+            showreel: {
+                name: "Showreel",
+                sub: "Reel",
+                videos: [
+                    "https://gersontoni.sirv.com/videos/Gerson%26Camila-ShowReel.mp4"
+                ]
+            },
+            scenes: {
+                name: "Scene Work",
+                sub: "Drama",
+                videos: [
+                    "https://gersontoni.sirv.com/videos/Gerson%20Toni%20-%20Escena.mp4",
+                    "https://gersontoni.sirv.com/videos/The-Equalizer-Scene.mp4",
+                    "https://gersontoni.sirv.com/videos/American-Gangster-Scene.mp4"
+                ]
+            },
+            action: {
+                name: "Action & Combat",
+                sub: "Fight",
+                videos: [
+                    "https://gersontoni.sirv.com/videos/ShootingActionClip.mp4",
+                    "https://gersontoni.sirv.com/videos/%F0%9F%8E%A5%20STAGE%20COMBAT%20%E2%9A%94%EF%B8%8F%20Hobbs%20vs%20S.mp4",
+                    "https://gersontoni.sirv.com/videos/Rapier%20%26%20Dagger.mp4",
+                    "https://gersontoni.sirv.com/videos/Fighting%20with%20Spear.mp4"
+                ]
+            },
+            training: {
+                name: "Stunt Training",
+                sub: "BTS",
+                videos: [
+                    "https://gersontoni.sirv.com/videos/Sword%2BSpearTraining.mp4",
+                    "https://gersontoni.sirv.com/videos/Backflip.mov",
+                    "https://gersontoni.sirv.com/videos/Playing%20Football.mp4",
+                    "https://gersontoni.sirv.com/videos/Skydiving.mp4",
+                    "https://gersontoni.sirv.com/videos/Boxing%20Training.mp4"
+                ]
+            },
+            commercials: {
+                name: "Commercials",
+                sub: "Brand",
+                videos: [
+                    "https://gersontoni.sirv.com/videos/Heineken%C2%AE%200.0%20Campaing.mp4",
+                    "https://gersontoni.sirv.com/videos/StenaLine%20Commercial.mp4",
+                    "https://gersontoni.sirv.com/videos/TheTenthMan%20X%20Rockshore%20Commercial.mp4",
+                    "https://gersontoni.sirv.com/videos/Rockshore%20Beer%20Campaing.mov",
+                    "https://gersontoni.sirv.com/videos/Aviva%20Care%20-%20Protection%20from%20Aviva.mp4",
+                    "https://gersontoni.sirv.com/videos/CarterHire%20Campaing.mp4"
+                ]
+            },
+            filmtv: {
+                name: "Film & TV",
+                sub: "Feature",
+                videos: [
+                    "https://gersontoni.sirv.com/videos/No%20Way%20Back%20-%20Final%20Cut%20%26%20Post%20Production%20-%20Edit%20By%20Philip%20Condron.mp4",
+                    "https://gersontoni.sirv.com/videos/STAFF%20ROOM%20Pilot%20Trailer%20-%20Jintonika%20Entertainment%20(1080p).mp4"
+                ]
+            }
+        };
 
-        if (loader) loader.style.display = "none";
-        if (videoGrid) videoGrid.style.display = "";
-    });
-</script>
+        function openPhotoCategory(key) {
+            const data = photoLibrary[key];
+            if (!data) return;
 
+            const panel = document.getElementById("photo-expanded");
+            const title = document.getElementById("photo-expanded-title");
+            const grid = document.getElementById("photo-expanded-grid");
+
+            title.innerHTML = data.name + ' <span>&middot; ' + data.sub + '</span>';
+            grid.innerHTML = data.images
+                .map(src => `<img src="${src}" alt="${data.name}" onclick="openLightbox(this)">`)
+                .join("");
+
+            document.querySelectorAll("#photo-categories .lib-card").forEach(c => c.classList.remove("active"));
+            const activeCard = document.querySelector('#photo-categories .lib-card[data-category="' + key + '"]');
+            if (activeCard) activeCard.classList.add("active");
+
+            panel.classList.add("show");
+            panel.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+
+        function closePhotoCategory() {
+            document.getElementById("photo-expanded").classList.remove("show");
+            document.querySelectorAll("#photo-categories .lib-card").forEach(c => c.classList.remove("active"));
+        }
+
+        function openVideoCategory(key) {
+            const data = videoLibrary[key];
+            if (!data) return;
+
+            const panel = document.getElementById("video-expanded");
+            const title = document.getElementById("video-expanded-title");
+            const grid = document.getElementById("video-expanded-grid");
+
+            title.innerHTML = data.name + ' <span>&middot; ' + data.sub + '</span>';
+            grid.innerHTML = data.videos
+                .map(src => `
+                    <div class="video-item video-mp4">
+                        <video muted playsinline preload="metadata">
+                            <source src="${src}" type="video/mp4">
+                        </video>
+                        <div class="video-play-overlay">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        </div>
+                    </div>`)
+                .join("");
+
+            document.querySelectorAll("#video-categories .lib-card").forEach(c => c.classList.remove("active"));
+            const activeCard = document.querySelector('#video-categories .lib-card[data-category="' + key + '"]');
+            if (activeCard) activeCard.classList.add("active");
+
+            panel.classList.add("show");
+            panel.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+
+        function closeVideoCategory() {
+            document.getElementById("video-expanded").classList.remove("show");
+            document.querySelectorAll("#video-categories .lib-card").forEach(c => c.classList.remove("active"));
+        }
+
+        document.querySelectorAll("#photo-categories .lib-card").forEach(function (card) {
+            card.addEventListener("click", function () {
+                openPhotoCategory(card.dataset.category);
+            });
+        });
+
+        document.querySelectorAll("#video-categories .lib-card").forEach(function (card) {
+            card.addEventListener("click", function () {
+                openVideoCategory(card.dataset.category);
+            });
+        });
+
+        /* Event delegation: works even though .video-item elements are
+        created dynamically after a category is selected. Attached once,
+        to the container that always exists in the DOM. */
+        const videoExpandedGrid = document.getElementById("video-expanded-grid");
+        if (videoExpandedGrid) {
+            videoExpandedGrid.addEventListener("click", function (e) {
+                const item = e.target.closest(".video-item");
+                if (item) {
+                    openVideoLightbox(item.querySelector("video"));
+                }
+            });
+        }
+    </script>
 </body>
 </html>
