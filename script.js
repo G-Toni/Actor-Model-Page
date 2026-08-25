@@ -7,9 +7,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const muteButton = document.getElementById("muteToggle");
 
     if (heroVideo && muteButton) {
+        const iconMuted = muteButton.querySelector(".icon-muted");
+        const iconUnmuted = muteButton.querySelector(".icon-unmuted");
+
         muteButton.addEventListener("click", function () {
             heroVideo.muted = !heroVideo.muted;
-            muteButton.innerText = heroVideo.muted ? "🔊 Unmute" : "🔇 Mute";
+
+            const isMuted = heroVideo.muted;
+            muteButton.setAttribute("aria-label", isMuted ? "Unmute video" : "Mute video");
+
+            if (iconMuted && iconUnmuted) {
+                iconMuted.style.display = isMuted ? "block" : "none";
+                iconUnmuted.style.display = isMuted ? "none" : "block";
+            }
         });
     }
 });
@@ -32,7 +42,48 @@ window.addEventListener("scroll", function () {
 
 
 /* ===============================
-   IMAGE GALLERY LOAD MORE
+   PHOTO LIBRARY — LIGHTBOX (maximized view + download + close)
+   Global functions so they work with:
+   - Static images (gallery.html, onclick="openLightbox(this)")
+   - Images injected dynamically by the category system (index.html)
+================================ */
+
+function openLightbox(imgEl) {
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const downloadBtn = document.getElementById("lightbox-download-btn");
+
+    if (!lightbox || !lightboxImg || !imgEl) return;
+
+    lightboxImg.src = imgEl.src;
+    if (downloadBtn) downloadBtn.href = imgEl.src;
+
+    lightbox.style.display = "flex";
+    lightbox.classList.add("active");
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById("lightbox");
+    if (!lightbox) return;
+
+    lightbox.style.display = "none";
+    lightbox.classList.remove("active");
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const lightbox = document.getElementById("lightbox");
+    if (!lightbox) return;
+
+    lightbox.addEventListener("click", function (e) {
+        if (e.target === lightbox) closeLightbox();
+    });
+});
+
+
+/* ===============================
+   IMAGE GALLERY — LOAD MORE
+   Only runs on pages with .image-item + .load-more-btn (e.g. gallery.html).
+   Safely does nothing on pages without these elements (e.g. index.html).
 ================================ */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -62,46 +113,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 /* ===============================
-   IMAGE LIGHTBOX
-================================ */
-
-document.addEventListener("DOMContentLoaded", function () {
-    const images = document.querySelectorAll(".image-item img");
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const downloadBtn = document.getElementById("download-btn");
-    const closeBtn = document.querySelector(".close");
-
-    if (!images.length || !lightbox || !lightboxImg) return;
-
-    images.forEach(img => {
-        img.addEventListener("click", function () {
-            lightbox.style.display = "flex";
-            lightbox.classList.add("active");
-            lightboxImg.src = img.src;
-
-            if (downloadBtn) downloadBtn.href = img.src;
-        });
-    });
-
-    if (closeBtn) {
-        closeBtn.addEventListener("click", function () {
-            lightbox.style.display = "none";
-            lightbox.classList.remove("active");
-        });
-    }
-
-    lightbox.addEventListener("click", function (e) {
-        if (e.target === lightbox) {
-            lightbox.style.display = "none";
-            lightbox.classList.remove("active");
-        }
-    });
-});
-
-
-/* ===============================
    DOWNLOAD ALL IMAGES
+   Used by .download-all-btn (e.g. gallery.html). Harmless if the
+   button doesn't exist on the current page — it just never gets called.
 ================================ */
 
 function downloadAllImages() {
@@ -119,7 +133,62 @@ function downloadAllImages() {
 
 
 /* ===============================
-   VIDEO SECTION LOAD MORE
+   VIDEO LIBRARY — LIGHTBOX (maximized view + download + close)
+   Global functions so they work with:
+   - Static videos on legacy pages (bound below via .video-item)
+   - Videos injected dynamically by the category system (index.html,
+     called directly via onclick="openVideoLightbox(this)")
+================================ */
+
+function openVideoLightbox(videoEl) {
+    const lightbox = document.getElementById("video-lightbox");
+    const lightboxContent = document.getElementById("video-lightbox-content");
+    const downloadBtn = document.getElementById("download-video-btn");
+
+    if (!lightbox || !lightboxContent || !videoEl) return;
+
+    videoEl.pause();
+
+    const videoSrc = videoEl.currentSrc || videoEl.querySelector("source")?.src || videoEl.src;
+
+    lightboxContent.innerHTML = `<video src="${videoSrc}" controls autoplay></video>`;
+
+    if (downloadBtn) {
+        downloadBtn.href = videoSrc;
+        downloadBtn.style.display = "inline-block";
+    }
+
+    lightbox.style.display = "flex";
+    lightbox.classList.add("active");
+}
+
+function closeVideoLightbox() {
+    const lightbox = document.getElementById("video-lightbox");
+    const lightboxContent = document.getElementById("video-lightbox-content");
+
+    if (!lightbox || !lightboxContent) return;
+
+    lightbox.style.display = "none";
+    lightbox.classList.remove("active");
+    lightboxContent.innerHTML = "";
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const videoLightbox = document.getElementById("video-lightbox");
+    if (!videoLightbox) return;
+
+    videoLightbox.addEventListener("click", function (e) {
+        if (e.target === videoLightbox) closeVideoLightbox();
+    });
+});
+
+
+/* ===============================
+   VIDEO SECTION — LOAD MORE
+   Only runs on pages with .video-item + .load-more-videos-btn present
+   at page load (a static videos page). Safely does nothing otherwise —
+   on index.html, videos are created only after a category is opened,
+   so this finds nothing at DOMContentLoaded and simply skips.
 ================================ */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -150,16 +219,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 /* ===============================
-   VIDEO LIGHTBOX
+   VIDEO SECTION — CLICK TO OPEN (legacy static pages)
+   Binds click handlers to .video-item elements that already exist at
+   page load (iframe or video), reusing the same openVideoLightbox().
+   On index.html this finds nothing at DOMContentLoaded (videos are
+   created later, per category) and simply skips — no conflict with
+   the onclick="openVideoLightbox(this)" used there.
 ================================ */
 
 document.addEventListener("DOMContentLoaded", function () {
     const videos = document.querySelectorAll(".video-item");
     const lightbox = document.getElementById("video-lightbox");
-    const lightboxContent = document.getElementById("video-lightbox-content");
-    const downloadBtn = document.getElementById("download-video-btn");
 
-    if (!videos.length || !lightbox || !lightboxContent) return;
+    if (!videos.length || !lightbox) return;
 
     videos.forEach(videoItem => {
         const iframe = videoItem.querySelector("iframe");
@@ -167,38 +239,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (iframe) {
             iframe.addEventListener("click", function () {
-                lightboxContent.innerHTML = `<iframe src="${iframe.src}" allowfullscreen></iframe>`;
+                const lightboxContent = document.getElementById("video-lightbox-content");
+                const downloadBtn = document.getElementById("download-video-btn");
+
+                if (lightboxContent) {
+                    lightboxContent.innerHTML = `<iframe src="${iframe.src}" allowfullscreen></iframe>`;
+                }
                 if (downloadBtn) downloadBtn.style.display = "none";
+
+                lightbox.style.display = "flex";
                 lightbox.classList.add("active");
             });
         }
 
         if (video) {
             video.addEventListener("click", function () {
-                const videoSrc = video.currentSrc || video.querySelector("source")?.src || video.src;
-                lightboxContent.innerHTML = `<video src="${videoSrc}" controls autoplay></video>`;
-
-                if (downloadBtn) {
-                    downloadBtn.href = videoSrc;
-                    downloadBtn.style.display = "inline-block";
-                }
-
-                lightbox.classList.add("active");
+                openVideoLightbox(video);
             });
         }
     });
 });
 
 
-function closeVideoLightbox() {
-    const lightbox = document.getElementById("video-lightbox");
-    const lightboxContent = document.getElementById("video-lightbox-content");
+/* ===============================
+   CLOSE LIGHTBOXES WITH ESC KEY
+================================ */
 
-    if (!lightbox || !lightboxContent) return;
-
-    lightbox.classList.remove("active");
-    lightboxContent.innerHTML = "";
-}
+document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+        closeLightbox();
+        closeVideoLightbox();
+    }
+});
 
 
 /* ===============================
