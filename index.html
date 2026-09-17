@@ -173,7 +173,7 @@
 
             <div class="credit-card">
                 <div class="credit-image">
-                    <img src="./assets/images/sport-1.jpg" alt="Untitled Crime Series">
+                    <img src="./assets/images/FireArm.jpeg" alt="Untitled Crime Series">
                 </div>
                 <div class="credit-meta">2025 &middot; Television &middot; In development</div>
                 <div class="credit-title">Untitled Crime Series</div>
@@ -184,7 +184,7 @@
 
             <div class="credit-card">
                 <div class="credit-image">
-                    <img src="./assets/images/sport-1.jpg" alt="Night Run">
+                    <img src="./assets/images/commercial-01.png" alt="Night Run">
                 </div>
                 <div class="credit-meta">2025 &middot; Feature / Commercial</div>
                 <div class="credit-title">Night Run</div>
@@ -334,7 +334,7 @@
             </div>
 
             <div class="lib-card video-card" data-category="training">
-                <img src="./assets/images/sport-3.jpg" alt="Stunt Training">
+                <img src="./assets/images/sport-3.jpg" alt="Stunt Training" style="object-position: top;">
                 <div class="lib-card-overlay"></div>
                 <div class="lib-icon lib-icon-play">
                     <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
@@ -343,7 +343,7 @@
             </div>
 
             <div class="lib-card video-card" data-category="commercials">
-                <img src="./assets/images/formal.jpg" alt="Commercials">
+                <img src="./assets/images/formal.jpg" alt="Commercials" style="object-position: top;">
                 <div class="lib-card-overlay"></div>
                 <div class="lib-icon lib-icon-play">
                     <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
@@ -394,7 +394,7 @@
 
                 <div class="contact-row">
                     <span class="contact-label">Email</span>
-                    <a href="mailto:contact@gersontoni.com" class="contact-value">contact@gersontoni.com</a>
+                    <a href="mailto:gerson210485@gmail.com" class="contact-value">gerson210485@gmail.com</a>
                 </div>
                 <div class="contact-row">
                     <span class="contact-label">Instagram</span>
@@ -412,7 +412,6 @@
 
             <div class="contact-card contact-form-card">
                 <h3>Send A Message</h3>
-                <p class="contact-form-sub">Management &middot; Jeny Poquet &middot; <a href="mailto:info@jenypoquetagent.com" class="contact-inline-link">info@jenypoquetagent.com</a></p>
 
                 <form id="contact-form" name="contact" method="POST" data-netlify="true">
                     <input type="hidden" name="form-name" value="contact">
@@ -503,7 +502,12 @@
                     "./assets/images/formal.jpg",
                     "./assets/images/Tattoo.jpg",
                     "./assets/images/Tattoo3.jpg",
-                    "./assets/images/Tattoo5.jpg"
+                    "./assets/images/Tattoo5.jpg",
+                    "./assets/images/Headshot1.0.jpg",
+                    "./assets/images/Headshot2.0.jpg",
+                    "./assets/images/Headshot3.0.jpg",
+                    "./assets/images/Headshot4.0.jpg",
+                    "./assets/images/Headshot5.0.jpg"
                 ]
             },
             sports: {
@@ -534,7 +538,9 @@
                     "./assets/images/No Way Back - Group Poster.jpeg",
                     "./assets/images/Gerson - Lucas.jpeg",
                     "./assets/images/Gerson - Lucas 2.jpeg",
-                    "./assets/images/show-2.jpg"
+                    "./assets/images/show-2.jpg",
+                    "./assets/images/Wednesday.jpg",
+                    "./assets/images/Power Ballad - 2026.jpg"
                 ]
             },
             action: {
@@ -620,8 +626,9 @@
             const grid = document.getElementById("photo-expanded-grid");
 
             title.innerHTML = data.name + ' <span>&middot; ' + data.sub + '</span>';
+            const posStyle = key === "sports" ? ' style="object-position: top;"' : "";
             grid.innerHTML = data.images
-                .map(src => `<img src="${src}" alt="${data.name}" onclick="openLightbox(this)">`)
+                .map(src => `<img src="${src}" alt="${data.name}"${posStyle} onclick="openLightbox(this)">`)
                 .join("");
 
             document.querySelectorAll("#photo-categories .lib-card").forEach(c => c.classList.remove("active"));
