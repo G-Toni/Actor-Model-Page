@@ -2354,3 +2354,89 @@ nav ul li a {
         width: 94%;
     }
 }
+
+
+/* ===============================
+   MY EXPERIENCE — BACKGROUND ON MOBILE (testimonials style)
+   On phones the columns stack and the block gets very tall, so
+   "background-size: cover" on the whole block zoomed the photo so much
+   the person disappeared. Here the photo only fills the TOP part of the
+   block (like the Testimonials background: cover + opacity + dark overlay)
+   and fades into black; the rest of the text continues on black.
+   Adjust if needed:
+   --cv-bg-height = how much of the block the photo covers
+   --cv-bg-pos    = framing: 1st value horizontal (0% left, 100% right),
+                    2nd value vertical (0% top, 100% bottom)
+================================ */
+@media (max-width: 820px) {
+    .cv-container {
+        --cv-bg-height: 620px;
+        --cv-bg-pos: 75% center;
+        position: relative;
+        overflow: hidden;
+        background-image: none;
+        background-color: #000;
+    }
+
+    /* Photo */
+    .cv-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: var(--cv-bg-height);
+        background-image: url(./assets/images/bg-cv.jpg);
+        background-size: cover;
+        background-position: var(--cv-bg-pos);
+        background-repeat: no-repeat;
+        opacity: 1;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    /* Dark overlay that ends in solid black */
+    .cv-container::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: var(--cv-bg-height);
+        background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.05) 25%, rgba(0,0,0,0.15) 60%, #000 100%);
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    /* Content above the photo */
+    .cv-container > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Shadow keeps the text readable over the lighter photo */
+    .cv-container .section-desc,
+    .cv-container .section-title,
+    .cv-container .section h2,
+    .cv-container .section p {
+        text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85);
+    }
+
+    /* Same spacing and alignment as the other dark sections
+       (Film & Television, Testimonials...): 47px section padding
+       + 20px side margin, titles aligned to the left */
+    .cv-container {
+        padding: 47px;
+        align-items: stretch;
+    }
+
+    .cv-columns {
+        width: auto;
+        margin: 0 20px;
+    }
+
+    .cv-contact {
+        max-width: none;
+        margin: 0 20px;
+    }
+}
