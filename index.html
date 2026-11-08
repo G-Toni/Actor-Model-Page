@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerson Toni</title>
+    <title>Gerson Toni · Actor &amp; Stunt Performer</title>
+    <meta name="description" content="Gerson Toni — Dublin-based actor, action performer and stunt artist. Showreel, credits, photos and contact for film, television and commercial work.">
     <link rel="icon" type="image/x-icon" href="./assets/favicon/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
     <link rel="manifest" href="./assets/favicon/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,20 +20,20 @@
         <header>
             <div class="hero">
 
-                <!-- OLD LOCAL VIDEO - KEEP FOR BACKUP -->
-                <!-- <video autoplay loop muted playsinline class="back-video">
-                    <source src="./assets/videos/No Way Back - Final Cut & Post Production - Edit By Philip Condron.mp4" type="video/mp4">
-                </video> -->
-
-                <video autoplay loop muted playsinline class="back-video" id="hero-video" preload="metadata">
-                    <source src="assets/videos/No Way Back - Final Cut & Post Production - Edit By Philip Condron.mp4" type="video/mp4">
+                <!-- poster = a frame of this same video, shown instantly while it loads
+                     (same image used as its thumbnail in Film & TV). If the file
+                     doesn't exist yet, the banner simply stays black until the video starts.
+                     The video file is attached by script.js (skipped when the visitor
+                     has "data saver" / reduced motion on: only the poster is shown). -->
+                <video autoplay loop muted playsinline class="back-video" id="hero-video" preload="metadata" poster="assets/videos/posters/No Way Back - Final Cut &amp; Post Production - Edit By Philip Condron.jpg">
+                    <source data-src="assets/videos/No Way Back - Final Cut & Post Production - Edit By Philip Condron.mp4" type="video/mp4">
                 </video>
 
                 <nav>
                     <div class="menu-toggle" id="menu-toggle">☰</div>
                     <ul class="logo-responsive">
                         <li class="logo">
-                            <a href="resume.html" target="_blank">
+                            <a href="#" aria-label="Gerson Toni — back to top">
                                 <span>GERSON</span>
                                 <span class="color-details">TONI</span>
                             </a>
@@ -38,12 +42,12 @@
                     <div class="nav-items" id="nav-items">
                         <ul>
                             <li class="logo">
-                                <a href="resume.html" target="_blank">
+                                <a href="#" aria-label="Gerson Toni — back to top">
                                     <span>GERSON</span>
                                     <span class="color-details">TONI</span>
                                 </a>
                             </li>
-                            <li><a href="">HOME</a></li>
+                            <li><a href="#">HOME</a></li>
                             <li><a href="#about-me">ABOUT</a></li>
                             <li><a href="gallery.html" target="_blank">GALLERY</a></li>
                             <li><a href="#video-library">VIDEOS</a></li>
@@ -60,7 +64,7 @@
 
                     <div class="hero-buttons">
                         <a href="#video-library" class="hero-btn hero-btn-primary">&#9654; Watch Showreel</a>
-                        <a href="./assets/Actor-Model CV Updated.pdf" download="Gerson_Toni_CV.pdf" class="hero-btn hero-btn-outline">Download CV</a>
+                        <a href="./assets/Gerson Toni Acting Resume.pdf" download="Gerson_Toni_CV.pdf" class="hero-btn hero-btn-outline">Download CV</a>
                         <a href="#contact-me" class="hero-btn hero-btn-outline">Contact</a>
 
                         <button id="muteToggle" class="mute-button" type="button" aria-label="Unmute video">
@@ -100,16 +104,14 @@
                     In every performance, I strive to not only entertain but to ignite something in the audience.
                 </p>
                 <small id="btn-more-info">Show more</small>
-                <!-- <a href="#contact-me" class="button">Contact me!</a> -->
             </div>
 
             <div class="section-aboutus--right">
-                <img src="./assets/images/OfficialPoster.jpeg" alt="Gerson Toni Poster">
+                <img src="./assets/images/OfficialPoster.jpeg" alt="Gerson Toni Poster" loading="lazy">
             </div>
         </div>
     </section>
     <div class="cv-container">
-        <!-- <h1 class="cv-title">Gerson Toni</h1> -->
         <div class="section-desc">Training, Credits & Special Skills</div>
         <div class="section-title">MY EXPERIENCE</div>
         <div class="custom-separator"></div>
@@ -148,11 +150,7 @@
             </div>
         </div>
         <div class="cv-contact">
-            <!-- <h2>Contact</h2>
-            <p>Email: <a href="mailto:contact@gersontoni.com" class="custom-link-contact">contact@gersontoni.com</a></p>
-            <p>Management Jeny Poquet: <a href="mailto:info@jenypoquetagent.com" class="custom-link-contact">info@jenypoquetagent.com</a></p>
-            <p>Instagram: <a href="https://instagram.com/gerson_toni" class="custom-link-contact" target="_blank">@gerson_toni</a></p> -->
-            <a href="./assets/Actor-Model CV Updated.pdf" download="Gerson_Toni_CV.pdf" target="_blank" id="download-btn">&#11123; Download CV</a>
+            <a href="./assets/Gerson Toni Acting Resume.pdf" download="Gerson_Toni_CV.pdf" target="_blank" id="download-btn">&#11123; Download CV</a>
         </div>
     </div>
     <section class="default dark credits-section">
@@ -162,7 +160,7 @@
         <div class="credits-grid">
             <div class="credit-card">
                 <div class="credit-image">
-                    <img src="./assets/images/img-NoWayBack.jpg" alt="No Way Back">
+                    <img src="./assets/images/img-NoWayBack.jpg" alt="No Way Back" loading="lazy">
                 </div>
                 <div class="credit-meta">2026 &middot; Short Film &middot; Ireland</div>
                 <div class="credit-title">No Way Back</div>
@@ -173,7 +171,7 @@
 
             <div class="credit-card">
                 <div class="credit-image">
-                    <img src="./assets/images/sport-1.jpg" alt="Untitled Crime Series">
+                    <img src="./assets/images/FireArm.jpeg" alt="Untitled Crime Series" loading="lazy">
                 </div>
                 <div class="credit-meta">2025 &middot; Television &middot; In development</div>
                 <div class="credit-title">Untitled Crime Series</div>
@@ -184,7 +182,7 @@
 
             <div class="credit-card">
                 <div class="credit-image">
-                    <img src="./assets/images/sport-1.jpg" alt="Night Run">
+                    <img src="./assets/images/commercial-01.jpg" alt="Night Run" loading="lazy">
                 </div>
                 <div class="credit-meta">2025 &middot; Feature / Commercial</div>
                 <div class="credit-title">Night Run</div>
@@ -195,7 +193,7 @@
         </div>
     </section>
     <section class="default dark testimonials-section">
-        <div class="testimonials-bg" style="background-image:url('./assets/images/FireArm3.jpeg');"></div>
+        <div class="testimonials-bg" data-bg="./assets/images/FireArm3.jpeg"></div>
         <div class="testimonials-overlay"></div>
 
         <div class="testimonials-content">
@@ -238,7 +236,7 @@
 
         <div class="photo-masonry" id="photo-categories">
             <div class="lib-card cat-profile" data-category="profile">
-                <img src="./assets/images/Headshot.jpeg" alt="Profile">
+                <img src="./assets/images/Headshot.jpg" alt="Profile" loading="lazy">
                 <div class="lib-card-overlay"></div>
                 <div class="lib-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
@@ -247,7 +245,7 @@
             </div>
 
             <div class="lib-card cat-sports" data-category="sports">
-                <img src="./assets/images/sport-1.jpg" alt="Sports">
+                <img src="./assets/images/sport-1.jpg" alt="Sports" loading="lazy">
                 <div class="lib-card-overlay"></div>
                 <div class="lib-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
@@ -256,7 +254,7 @@
             </div>
 
             <div class="lib-card cat-commercials" data-category="commercials">
-                <img src="./assets/images/best-doctors.jpg" alt="Commercials">
+                <img src="./assets/images/best-doctors.jpg" alt="Commercials" loading="lazy">
                 <div class="lib-card-overlay"></div>
                 <div class="lib-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
@@ -265,7 +263,7 @@
             </div>
 
             <div class="lib-card cat-movies" data-category="movies">
-                <img src="./assets/images/OfficialPoster.jpeg" alt="Movies">
+                <img src="./assets/images/OfficialPoster.jpeg" alt="Movies" loading="lazy">
                 <div class="lib-card-overlay"></div>
                 <div class="lib-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
@@ -274,7 +272,7 @@
             </div>
 
             <div class="lib-card cat-action" data-category="action">
-                <img src="./assets/images/FireArm2.jpeg" alt="Action Scenes">
+                <img src="./assets/images/FireArm2.jpeg" alt="Action Scenes" loading="lazy">
                 <div class="lib-card-overlay"></div>
                 <div class="lib-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
@@ -307,7 +305,7 @@
 
         <div class="video-categories" id="video-categories">
             <div class="lib-card video-card" data-category="showreel">
-                <img src="./assets/images/Headshot.jpeg" alt="Showreel">
+                <img src="./assets/images/Headshot.jpg" alt="Showreel" loading="lazy">
                 <div class="lib-card-overlay"></div>
                 <div class="lib-icon lib-icon-play">
                     <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
@@ -316,7 +314,7 @@
             </div>
 
             <div class="lib-card video-card" data-category="scenes">
-                <img src="./assets/images/Gerson - Lucas.jpeg" alt="Scene Work">
+                <img src="./assets/images/Gerson - Lucas.jpeg" alt="Scene Work" loading="lazy">
                 <div class="lib-card-overlay"></div>
                 <div class="lib-icon lib-icon-play">
                     <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
@@ -325,7 +323,7 @@
             </div>
 
             <div class="lib-card video-card" data-category="action">
-                <img src="./assets/images/FireArm3.jpeg" alt="Action &amp; Combat">
+                <img src="./assets/images/FireArm3.jpeg" alt="Action &amp; Combat" loading="lazy">
                 <div class="lib-card-overlay"></div>
                 <div class="lib-icon lib-icon-play">
                     <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
@@ -334,7 +332,7 @@
             </div>
 
             <div class="lib-card video-card" data-category="training">
-                <img src="./assets/images/sport-3.jpg" alt="Stunt Training">
+                <img src="./assets/images/sport-3.jpg" alt="Stunt Training" style="object-position: top;" loading="lazy">
                 <div class="lib-card-overlay"></div>
                 <div class="lib-icon lib-icon-play">
                     <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
@@ -343,7 +341,7 @@
             </div>
 
             <div class="lib-card video-card" data-category="commercials">
-                <img src="./assets/images/formal.jpg" alt="Commercials">
+                <img src="./assets/images/formal.jpg" alt="Commercials" style="object-position: top;" loading="lazy">
                 <div class="lib-card-overlay"></div>
                 <div class="lib-icon lib-icon-play">
                     <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
@@ -352,7 +350,7 @@
             </div>
 
             <div class="lib-card video-card" data-category="filmtv">
-                <img src="./assets/images/OfficialPoster.jpeg" alt="Film &amp; TV">
+                <img src="./assets/images/OfficialPoster.jpeg" alt="Film &amp; TV" loading="lazy">
                 <div class="lib-card-overlay"></div>
                 <div class="lib-icon lib-icon-play">
                     <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
@@ -378,7 +376,7 @@
 
     <section class="contact-section" id="contact-me">
         <div class="contact-hero">
-            <div class="contact-hero-bg" style="background-image:url('./assets/images/img-bg-contact.png');"></div>
+            <div class="contact-hero-bg" data-bg="./assets/images/img-bg-contact.jpg"></div>
             <div class="contact-hero-overlay"></div>
             <div class="contact-hero-content">
                 <div class="contact-kicker">Get In Touch</div>
@@ -394,7 +392,7 @@
 
                 <div class="contact-row">
                     <span class="contact-label">Email</span>
-                    <a href="mailto:contact@gersontoni.com" class="contact-value">contact@gersontoni.com</a>
+                    <a href="mailto:gerson210485@gmail.com" class="contact-value">gerson210485@gmail.com</a>
                 </div>
                 <div class="contact-row">
                     <span class="contact-label">Instagram</span>
@@ -412,10 +410,11 @@
 
             <div class="contact-card contact-form-card">
                 <h3>Send A Message</h3>
-                <p class="contact-form-sub">Management &middot; Jeny Poquet &middot; <a href="mailto:info@jenypoquetagent.com" class="contact-inline-link">info@jenypoquetagent.com</a></p>
 
-                <form id="contact-form" name="contact" method="POST" data-netlify="true">
+                <!-- Netlify Forms: submissions go to Netlify dashboard > Forms > "contact" -->
+                <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
                     <input type="hidden" name="form-name" value="contact">
+                    <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
                     <input type="text" name="name" placeholder="Your Name" required>
                     <input type="email" name="email" placeholder="Your Email" required>
                     <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
@@ -429,7 +428,7 @@
     <footer>
         <div class="footer-top">
             <div class="footer-brand">
-                <a href="" class="footer-logo">
+                <a href="#" class="footer-logo">
                     <span>GERSON</span>
                     <span class="color-details">TONI</span>
                 </a>
@@ -470,27 +469,23 @@
             <p>Copyright 2026 &copy; Created by Gerson Toni. All Rights Reserved.</p>
         </div>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
     <script>
-        const toggleBtn = document.getElementById("menu-toggle");
-        const navItems = document.getElementById("nav-items");
-
-        if (toggleBtn && navItems) {
-            toggleBtn.addEventListener("click", function () {
-                navItems.classList.toggle("show");
+        /* "Show more" in About (plain JS — no jQuery download needed) */
+        const moreInfoBtn = document.getElementById("btn-more-info");
+        if (moreInfoBtn) {
+            moreInfoBtn.addEventListener("click", function () {
+                const open = !moreInfoBtn.classList.contains("open");
+                document.querySelectorAll(".info-about-me").forEach(function (p) {
+                    p.classList.toggle("show", open);
+                });
+                moreInfoBtn.classList.toggle("open", open);
+                moreInfoBtn.textContent = open ? "Show less" : "Show more";
             });
         }
 
-        $("#btn-more-info").on("click", function () {
-            $(".info-about-me").slideToggle();
-
-            const isVisible = $(".info-about-me").is(":visible");
-            $(this).text(isVisible ? "Show less" : "Show more");
-        });
-
         /* ==============================
-        PHOTO & VIDEO LIBRARY (Categorised)
+        PHOTO LIBRARY (Categorised)
         ============================== */
 
         const photoLibrary = {
@@ -498,12 +493,17 @@
                 name: "Profile",
                 sub: "Headshots",
                 images: [
-                    "./assets/images/Headshot.jpeg",
+                    "./assets/images/Headshot.jpg",
                     "./assets/images/profile.jpg",
                     "./assets/images/formal.jpg",
                     "./assets/images/Tattoo.jpg",
                     "./assets/images/Tattoo3.jpg",
-                    "./assets/images/Tattoo5.jpg"
+                    "./assets/images/Tattoo5.jpg",
+                    "./assets/images/Headshot1.0.jpg",
+                    "./assets/images/Headshot2.0.jpg",
+                    "./assets/images/Headshot3.0.jpg",
+                    "./assets/images/Headshot4.0.jpg",
+                    "./assets/images/Headshot5.0.jpg"
                 ]
             },
             sports: {
@@ -534,7 +534,9 @@
                     "./assets/images/No Way Back - Group Poster.jpeg",
                     "./assets/images/Gerson - Lucas.jpeg",
                     "./assets/images/Gerson - Lucas 2.jpeg",
-                    "./assets/images/show-2.jpg"
+                    "./assets/images/show-2.jpg",
+                    "./assets/images/Wednesday.jpg",
+                    "./assets/images/Power Ballad - 2026.jpg"
                 ]
             },
             action: {
@@ -551,65 +553,128 @@
             }
         };
 
+        /* ==============================
+        VIDEO LIBRARY (Categorised)
+
+        HOW TO EDIT:
+        - Videos are served from the project folder: assets/videos/
+        - Each video accepts:
+            title:   name shown on the thumbnail
+            file:    file name inside assets/videos/ (URL-encoded, e.g. spaces = %20)
+            poster:  (optional) custom thumbnail. If empty, the site looks for
+                     assets/videos/posters/<same name>.jpg (created by the
+                     generate-posters script). If that image does not exist,
+                     a frame from the video itself is shown instead.
+            youtube: (optional) YouTube video ID. If set, the video plays from
+                     YouTube and the Download button is hidden for that video.
+        - The full video file is only loaded when the visitor clicks to watch.
+        ============================== */
+
+        const VIDEO_BASE = "assets/videos/";
+        const POSTER_BASE = "assets/videos/posters/";
+
         const videoLibrary = {
             showreel: {
                 name: "Showreel",
                 sub: "Reel",
+                cover: "./assets/images/Headshot.jpg",
                 videos: [
-                    "https://gersontoni.sirv.com/videos/Gerson%26Camila-ShowReel.mp4"
+                    { title: "Showreel", file: "Gerson%26Camila-ShowReel.mp4", poster: "", youtube: "" }
                 ]
             },
             scenes: {
                 name: "Scene Work",
                 sub: "Drama",
+                cover: "./assets/images/Gerson - Lucas.jpeg",
                 videos: [
-                    "https://gersontoni.sirv.com/videos/Gerson%20Toni%20-%20Escena.mp4",
-                    "https://gersontoni.sirv.com/videos/The-Equalizer-Scene.mp4",
-                    "https://gersontoni.sirv.com/videos/American-Gangster-Scene.mp4"
+                    { title: "Escena", file: "Gerson%20Toni%20-%20Escena.mp4", poster: "", youtube: "" },
+                    { title: "The Equalizer — Scene", file: "The-Equalizer-Scene.mp4", poster: "", youtube: "" },
+                    { title: "American Gangster — Scene", file: "American-Gangster-Scene.mp4", poster: "", youtube: "" }
                 ]
             },
             action: {
                 name: "Action & Combat",
                 sub: "Fight",
+                cover: "./assets/images/FireArm3.jpeg",
                 videos: [
-                    "https://gersontoni.sirv.com/videos/ShootingActionClip.mp4",
-                    "https://gersontoni.sirv.com/videos/%F0%9F%8E%A5%20STAGE%20COMBAT%20%E2%9A%94%EF%B8%8F%20Hobbs%20vs%20S.mp4",
-                    "https://gersontoni.sirv.com/videos/Rapier%20%26%20Dagger.mp4",
-                    "https://gersontoni.sirv.com/videos/Fighting%20with%20Spear.mp4"
+                    { title: "Shooting Action Clip", file: "ShootingActionClip.mp4", poster: "", youtube: "" },
+                    { title: "Stage Combat — Hobbs vs S.", file: "%F0%9F%8E%A5%20STAGE%20COMBAT%20%E2%9A%94%EF%B8%8F%20Hobbs%20vs%20S.mp4", poster: "", youtube: "" },
+                    { title: "Rapier & Dagger", file: "Rapier%20%26%20Dagger.mp4", poster: "", youtube: "" },
+                    { title: "Fighting with Spear", file: "Fighting%20with%20Spear.mp4", poster: "", youtube: "" }
                 ]
             },
             training: {
                 name: "Stunt Training",
                 sub: "BTS",
+                cover: "./assets/images/sport-3.jpg",
                 videos: [
-                    "https://gersontoni.sirv.com/videos/Sword%2BSpearTraining.mp4",
-                    "https://gersontoni.sirv.com/videos/Backflip.mov",
-                    "https://gersontoni.sirv.com/videos/Playing%20Football.mp4",
-                    "https://gersontoni.sirv.com/videos/Skydiving.mp4",
-                    "https://gersontoni.sirv.com/videos/Boxing%20Training.mp4"
+                    { title: "Sword + Spear Training", file: "Sword%2BSpearTraining.mp4", poster: "", youtube: "" },
+                    { title: "Backflip", file: "Backflip.mov", poster: "", youtube: "" },
+                    { title: "Playing Football", file: "Playing%20Football.mp4", poster: "", youtube: "" },
+                    { title: "Skydiving", file: "Skydiving.mp4", poster: "", youtube: "" },
+                    { title: "Boxing Training", file: "Boxing%20Training.mp4", poster: "", youtube: "" }
                 ]
             },
             commercials: {
                 name: "Commercials",
                 sub: "Brand",
+                cover: "./assets/images/formal.jpg",
                 videos: [
-                    "https://gersontoni.sirv.com/videos/Heineken%C2%AE%200.0%20Campaing.mp4",
-                    "https://gersontoni.sirv.com/videos/StenaLine%20Commercial.mp4",
-                    "https://gersontoni.sirv.com/videos/TheTenthMan%20X%20Rockshore%20Commercial.mp4",
-                    "https://gersontoni.sirv.com/videos/Rockshore%20Beer%20Campaing.mov",
-                    "https://gersontoni.sirv.com/videos/Aviva%20Care%20-%20Protection%20from%20Aviva.mp4",
-                    "https://gersontoni.sirv.com/videos/CarterHire%20Campaing.mp4"
+                    { title: "Heineken 0.0", file: "Heineken%C2%AE%200.0%20Campaing.mp4", poster: "", youtube: "" },
+                    { title: "Stena Line", file: "StenaLine%20Commercial.mp4", poster: "", youtube: "" },
+                    { title: "The Tenth Man x Rockshore", file: "TheTenthMan%20X%20Rockshore%20Commercial.mp4", poster: "", youtube: "" },
+                    { title: "Rockshore Beer", file: "Rockshore%20Beer%20Campaing.mov", poster: "", youtube: "" },
+                    { title: "Aviva Care", file: "Aviva%20Care%20-%20Protection%20from%20Aviva.mp4", poster: "", youtube: "" },
+                    { title: "Carter Hire", file: "CarterHire%20Campaing.mp4", poster: "", youtube: "" }
                 ]
             },
             filmtv: {
                 name: "Film & TV",
                 sub: "Feature",
+                cover: "./assets/images/OfficialPoster.jpeg",
                 videos: [
-                    "assets/videos/No Way Back - Final Cut & Post Production - Edit By Philip Condron.mp4",
-                    "https://gersontoni.sirv.com/videos/STAFF%20ROOM%20Pilot%20Trailer%20-%20Jintonika%20Entertainment%20(1080p).mp4"
+                    { title: "No Way Back", file: "No%20Way%20Back%20-%20Final%20Cut%20%26%20Post%20Production%20-%20Edit%20By%20Philip%20Condron.mp4", poster: "", youtube: "" },
+                    { title: "Staff Room — Pilot Trailer", file: "STAFF%20ROOM%20Pilot%20Trailer%20-%20Jintonika%20Entertainment%20(1080p).mp4", poster: "", youtube: "" }
                 ]
             }
         };
+
+        function videoSrc(video) {
+            return VIDEO_BASE + video.file;
+        }
+
+        /* Thumbnail = assets/videos/posters/<video name>.jpg */
+        function videoPoster(video) {
+            if (video.poster) return video.poster;
+            return POSTER_BASE + video.file.replace(/\.[^.]+$/, ".jpg");
+        }
+
+        /* Fallback: if the poster image doesn't exist yet, show a frame
+           taken from the video itself (only the start of the file is read). */
+        function useVideoFrame(img) {
+            const item = img.closest(".video-item");
+            const data = videoLibrary[currentVideoCategory];
+            if (!item || !data) return;
+
+            const video = data.videos[Number(item.dataset.index)];
+            if (!video) return;
+
+            const frame = document.createElement("video");
+            frame.muted = true;
+            frame.playsInline = true;
+            frame.preload = "metadata";
+            frame.setAttribute("aria-hidden", "true");
+            frame.src = videoSrc(video) + "#t=1";
+            img.replaceWith(frame);
+        }
+
+        let currentVideoCategory = null;
+
+        function escapeHtml(text) {
+            const div = document.createElement("div");
+            div.textContent = text;
+            return div.innerHTML;
+        }
 
         function openPhotoCategory(key) {
             const data = photoLibrary[key];
@@ -620,8 +685,10 @@
             const grid = document.getElementById("photo-expanded-grid");
 
             title.innerHTML = data.name + ' <span>&middot; ' + data.sub + '</span>';
+            const posStyle = key === "sports" ? ' style="object-position: top;"' : "";
+            /* Loaded right away (the visitor just asked for them) and faded in when ready */
             grid.innerHTML = data.images
-                .map(src => `<img src="${src}" alt="${data.name}" onclick="openLightbox(this)">`)
+                .map(src => `<img src="${src}" alt="${data.name}"${posStyle} decoding="async" onload="this.classList.add('loaded')" onerror="this.classList.add('loaded')" onclick="openLightbox(this)">`)
                 .join("");
 
             document.querySelectorAll("#photo-categories .lib-card").forEach(c => c.classList.remove("active"));
@@ -641,21 +708,28 @@
             const data = videoLibrary[key];
             if (!data) return;
 
+            currentVideoCategory = key;
+
             const panel = document.getElementById("video-expanded");
             const title = document.getElementById("video-expanded-title");
             const grid = document.getElementById("video-expanded-grid");
 
-            title.innerHTML = data.name + ' <span>&middot; ' + data.sub + '</span>';
+            title.innerHTML = escapeHtml(data.name) + ' <span>&middot; ' + escapeHtml(data.sub) + '</span>';
+
+            /* Image thumbnails (poster from the video); full video only loads on click */
             grid.innerHTML = data.videos
-                .map(src => `
-                    <div class="video-item video-mp4">
-                        <video muted playsinline preload="metadata">
-                            <source src="${src}" type="video/mp4">
-                        </video>
+                .map((video, index) => {
+                    const thumb = videoPoster(video);
+                    const safeTitle = escapeHtml(video.title);
+                    return `
+                    <div class="video-item" data-index="${index}" role="button" tabindex="0" aria-label="Play ${safeTitle}">
+                        <img src="${thumb}" alt="${safeTitle}" loading="lazy" onerror="useVideoFrame(this)">
                         <div class="video-play-overlay">
                             <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
                         </div>
-                    </div>`)
+                        <span class="video-item-title">${safeTitle}</span>
+                    </div>`;
+                })
                 .join("");
 
             document.querySelectorAll("#video-categories .lib-card").forEach(c => c.classList.remove("active"));
@@ -671,7 +745,37 @@
             document.querySelectorAll("#video-categories .lib-card").forEach(c => c.classList.remove("active"));
         }
 
+        function playVideoItem(item) {
+            const data = videoLibrary[currentVideoCategory];
+            if (!data) return;
+
+            const video = data.videos[Number(item.dataset.index)];
+            if (!video) return;
+
+            openVideoLightbox(videoSrc(video), { youtube: video.youtube });
+        }
+
+        /* Start downloading a category's photos as soon as the visitor points at
+           (or touches) the card, so they're ready by the time the panel opens */
+        const preloadedCategories = {};
+        function preloadPhotoCategory(key) {
+            const data = photoLibrary[key];
+            if (!data || preloadedCategories[key]) return;
+            preloadedCategories[key] = true;
+            data.images.forEach(function (src) {
+                const img = new Image();
+                img.decoding = "async";
+                img.src = src;
+            });
+        }
+
         document.querySelectorAll("#photo-categories .lib-card").forEach(function (card) {
+            card.addEventListener("mouseenter", function () {
+                preloadPhotoCategory(card.dataset.category);
+            });
+            card.addEventListener("touchstart", function () {
+                preloadPhotoCategory(card.dataset.category);
+            }, { passive: true });
             card.addEventListener("click", function () {
                 openPhotoCategory(card.dataset.category);
             });
@@ -683,15 +787,20 @@
             });
         });
 
-        /* Event delegation: works even though .video-item elements are
-        created dynamically after a category is selected. Attached once,
-        to the container that always exists in the DOM. */
+        /* Event delegation: thumbnails are created dynamically per category */
         const videoExpandedGrid = document.getElementById("video-expanded-grid");
         if (videoExpandedGrid) {
             videoExpandedGrid.addEventListener("click", function (e) {
                 const item = e.target.closest(".video-item");
+                if (item) playVideoItem(item);
+            });
+
+            videoExpandedGrid.addEventListener("keydown", function (e) {
+                if (e.key !== "Enter" && e.key !== " ") return;
+                const item = e.target.closest(".video-item");
                 if (item) {
-                    openVideoLightbox(item.querySelector("video"));
+                    e.preventDefault();
+                    playVideoItem(item);
                 }
             });
         }

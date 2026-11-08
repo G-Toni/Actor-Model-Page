@@ -1,4 +1,21 @@
 /* ===============================
+   MOBILE MENU TOGGLE
+   Centralised here so it works on every page (index.html, resume.html).
+================================ */
+
+document.addEventListener("DOMContentLoaded", function () {
+    const toggleBtn = document.getElementById("menu-toggle");
+    const navItems = document.getElementById("nav-items");
+
+    if (toggleBtn && navItems) {
+        toggleBtn.addEventListener("click", function () {
+            navItems.classList.toggle("show");
+        });
+    }
+});
+
+
+/* ===============================
    HERO VIDEO MUTE / UNMUTE
 ================================ */
 
@@ -26,26 +43,126 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 /* ===============================
-   ABOUT IMAGE SCROLL EFFECT
+   HERO VIDEO — LOAD + PAUSE WHEN OFF-SCREEN
+   - The video file is attached here (not in the HTML) so it can be skipped
+     for visitors with "data saver" or "reduce motion" on: they just see the
+     poster image, and no video bandwidth is spent.
+   - The video pauses when scrolled out of view, freeing the browser to
+     render the rest of the page smoothly (avoids blank blocks) and saving
+     battery. It resumes when the visitor scrolls back up.
 ================================ */
 
-window.addEventListener("scroll", function () {
+document.addEventListener("DOMContentLoaded", function () {
+    const heroVideo = document.getElementById("hero-video");
+    if (!heroVideo) return;
+
+    const source = heroVideo.querySelector("source[data-src]");
+    const connection = navigator.connection || {};
+    const saveData = connection.saveData === true || /(^|-)2g$/.test(connection.effectiveType || "");
+    const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (saveData || reduceMotion) {
+        heroVideo.removeAttribute("autoplay");
+        const muteButton = document.getElementById("muteToggle");
+        if (muteButton) muteButton.style.display = "none";
+        return; /* poster only */
+    }
+
+    if (source) {
+        source.src = source.dataset.src;
+        source.removeAttribute("data-src");
+        heroVideo.load();
+    }
+
+    function tryPlay() {
+        const playPromise = heroVideo.play();
+        if (playPromise && typeof playPromise.catch === "function") {
+            playPromise.catch(function () { /* autoplay blocked: poster stays */ });
+        }
+    }
+
+    if (!("IntersectionObserver" in window)) {
+        tryPlay();
+        return;
+    }
+
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                tryPlay();
+            } else {
+                heroVideo.pause();
+            }
+        });
+    }, { threshold: 0.05 });
+
+    observer.observe(heroVideo);
+});
+
+
+/* ===============================
+   ABOUT IMAGE SCROLL EFFECT
+   IntersectionObserver instead of a scroll listener: the browser tells us
+   once when the image comes into view (no work on every scroll tick).
+================================ */
+
+document.addEventListener("DOMContentLoaded", function () {
     const img = document.querySelector(".section-aboutus--right img");
     if (!img) return;
 
-    const rect = img.getBoundingClientRect();
-
-    if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+    if (!("IntersectionObserver" in window)) {
         img.classList.add("visible");
+        return;
     }
+
+    const observer = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                img.classList.add("visible");
+                obs.disconnect();
+            }
+        });
+    }, { threshold: 0.1 });
+
+    observer.observe(img);
+});
+
+
+/* ===============================
+   LAZY BACKGROUND IMAGES
+   Elements with data-bg="image.jpg" only download their background
+   when they get close to the screen (testimonials, contact header).
+================================ */
+
+document.addEventListener("DOMContentLoaded", function () {
+    const elements = document.querySelectorAll("[data-bg]");
+    if (!elements.length) return;
+
+    function applyBackground(el) {
+        el.style.backgroundImage = "url('" + el.dataset.bg + "')";
+        el.removeAttribute("data-bg");
+    }
+
+    if (!("IntersectionObserver" in window)) {
+        elements.forEach(applyBackground);
+        return;
+    }
+
+    const observer = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                applyBackground(entry.target);
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { rootMargin: "400px 0px" });
+
+    elements.forEach(function (el) { observer.observe(el); });
 });
 
 
 /* ===============================
    PHOTO LIBRARY — LIGHTBOX (maximized view + download + close)
-   Global functions so they work with:
-   - Static images (gallery.html, onclick="openLightbox(this)")
-   - Images injected dynamically by the category system (index.html)
 ================================ */
 
 function openLightbox(imgEl) {
@@ -82,8 +199,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /* ===============================
    IMAGE GALLERY — LOAD MORE
-   Only runs on pages with .image-item + .load-more-btn (e.g. gallery.html).
-   Safely does nothing on pages without these elements (e.g. index.html).
+   With loading="lazy" on the <img> tags, hidden images are NOT
+   downloaded until "Load More" reveals them.
 ================================ */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -113,9 +230,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 /* ===============================
-   DOWNLOAD ALL IMAGES
-   Used by .download-all-btn (e.g. gallery.html). Harmless if the
-   button doesn't exist on the current page — it just never gets called.
+   DOWNLOAD ALL IMAGES (gallery.html)
 ================================ */
 
 function downloadAllImages() {
@@ -134,32 +249,79 @@ function downloadAllImages() {
 
 /* ===============================
    VIDEO LIBRARY — LIGHTBOX (maximized view + download + close)
-   Global functions so they work with:
-   - Static videos on legacy pages (bound below via .video-item)
-   - Videos injected dynamically by the category system (index.html,
-     called directly via onclick="openVideoLightbox(this)")
+
+   The video file is only requested HERE, when the visitor clicks
+   to watch. Thumbnails in the grid are static images, so browsing
+   categories costs no video bandwidth.
+
+   Accepts:
+   - a URL string:            openVideoLightbox("https://.../clip.mp4")
+   - a <video> element:       openVideoLightbox(videoEl)   (legacy pages)
+   - options.youtube = "ID":  plays a YouTube embed instead (no bandwidth
+                              cost to the site; download button is hidden)
 ================================ */
 
-function openVideoLightbox(videoEl) {
+function openVideoLightbox(source, options) {
     const lightbox = document.getElementById("video-lightbox");
     const lightboxContent = document.getElementById("video-lightbox-content");
     const downloadBtn = document.getElementById("download-video-btn");
 
-    if (!lightbox || !lightboxContent || !videoEl) return;
+    if (!lightbox || !lightboxContent || !source) return;
 
-    videoEl.pause();
+    options = options || {};
 
-    const videoSrc = videoEl.currentSrc || videoEl.querySelector("source")?.src || videoEl.src;
+    let videoSrc = "";
+    if (typeof source === "string") {
+        videoSrc = source;
+    } else {
+        if (typeof source.pause === "function") source.pause();
+        const inner = source.querySelector ? source.querySelector("source") : null;
+        videoSrc = source.currentSrc || (inner && inner.src) || source.src || "";
+    }
 
-    lightboxContent.innerHTML = `<video src="${videoSrc}" controls autoplay></video>`;
+    stopLightboxVideo();
+    lightboxContent.innerHTML = "";
 
-    if (downloadBtn) {
-        downloadBtn.href = videoSrc;
-        downloadBtn.style.display = "inline-block";
+    if (options.youtube) {
+        const iframe = document.createElement("iframe");
+        iframe.src = "https://www.youtube-nocookie.com/embed/" +
+            encodeURIComponent(options.youtube) + "?autoplay=1&rel=0&modestbranding=1";
+        iframe.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+        iframe.allowFullscreen = true;
+        lightboxContent.appendChild(iframe);
+
+        if (downloadBtn) downloadBtn.style.display = "none";
+    } else {
+        if (!videoSrc) return;
+
+        const video = document.createElement("video");
+        video.src = videoSrc;
+        video.controls = true;
+        video.autoplay = true;
+        video.playsInline = true;
+        lightboxContent.appendChild(video);
+
+        if (downloadBtn) {
+            downloadBtn.href = videoSrc;
+            downloadBtn.style.display = "inline-block";
+        }
     }
 
     lightbox.style.display = "flex";
     lightbox.classList.add("active");
+}
+
+/* Fully stops the video so the browser stops downloading it */
+function stopLightboxVideo() {
+    const lightboxContent = document.getElementById("video-lightbox-content");
+    if (!lightboxContent) return;
+
+    const video = lightboxContent.querySelector("video");
+    if (video) {
+        video.pause();
+        video.removeAttribute("src");
+        video.load();
+    }
 }
 
 function closeVideoLightbox() {
@@ -167,6 +329,8 @@ function closeVideoLightbox() {
     const lightboxContent = document.getElementById("video-lightbox-content");
 
     if (!lightbox || !lightboxContent) return;
+
+    stopLightboxVideo();
 
     lightbox.style.display = "none";
     lightbox.classList.remove("active");
@@ -184,11 +348,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 /* ===============================
-   VIDEO SECTION — LOAD MORE
-   Only runs on pages with .video-item + .load-more-videos-btn present
-   at page load (a static videos page). Safely does nothing otherwise —
-   on index.html, videos are created only after a category is opened,
-   so this finds nothing at DOMContentLoaded and simply skips.
+   VIDEO SECTION — LOAD MORE (legacy static pages only)
 ================================ */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -219,12 +379,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 /* ===============================
-   VIDEO SECTION — CLICK TO OPEN (legacy static pages)
-   Binds click handlers to .video-item elements that already exist at
-   page load (iframe or video), reusing the same openVideoLightbox().
-   On index.html this finds nothing at DOMContentLoaded (videos are
-   created later, per category) and simply skips — no conflict with
-   the onclick="openVideoLightbox(this)" used there.
+   VIDEO SECTION — CLICK TO OPEN (legacy static pages only)
+   On index.html nothing exists at load time, so this skips.
 ================================ */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -274,18 +430,25 @@ document.addEventListener("keydown", function (e) {
 
 
 /* ===============================
-   EMAILJS CONTACT FORM + VALIDATION
+   CONTACT FORM — NETLIFY FORMS
+   Submissions appear in the Netlify dashboard (Forms > contact).
+   Email notifications are configured there too.
+   Note: only works on the published Netlify site, not when the
+   file is opened locally.
 ================================ */
 
 document.addEventListener("DOMContentLoaded", function () {
-    const SERVICE_ID = "service_tkya50m";
-    const TEMPLATE_ID = "template_suwkkeh";
-    const PUBLIC_KEY = "cSJi4V8k7ns-5DXU1";
-
     const form = document.getElementById("contact-form");
     const messageBox = document.querySelector(".success-message");
 
     if (!form) return;
+
+    function showMessage(text, color) {
+        if (!messageBox) return;
+        messageBox.innerText = text;
+        messageBox.style.color = color;
+        messageBox.classList.add("show");
+    }
 
     form.addEventListener("submit", function (event) {
         event.preventDefault();
@@ -294,47 +457,31 @@ document.addEventListener("DOMContentLoaded", function () {
         const email = form.querySelector('input[name="email"]');
         const message = form.querySelector('textarea[name="message"]');
 
-        if (!name?.value || !email?.value || !message?.value) {
+        if (!name?.value.trim() || !email?.value.trim() || !message?.value.trim()) {
             alert("Please fill out all fields before submitting.");
             return;
         }
 
-        if (typeof emailjs === "undefined") {
-            alert("Email service is not loaded. Please try again later.");
-            return;
-        }
-
-        emailjs.init(PUBLIC_KEY);
-
-        const submitButton = form.querySelector("button");
-
-        const templateParams = {
-            from_name: name.value,
-            from_email: email.value,
-            message: message.value
-        };
-
+        const submitButton = form.querySelector('button[type="submit"]');
         if (submitButton) {
             submitButton.disabled = true;
             submitButton.innerText = "Sending...";
         }
 
-        emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
-            .then(function () {
-                if (messageBox) {
-                    messageBox.innerText = "Message sent successfully!";
-                    messageBox.style.color = "green";
-                    messageBox.classList.add("show");
-                }
+        const body = new URLSearchParams(new FormData(form)).toString();
 
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: body
+        })
+            .then(function (response) {
+                if (!response.ok) throw new Error("Status " + response.status);
+                showMessage("Message sent successfully!", "#d4af37");
                 form.reset();
             })
             .catch(function () {
-                if (messageBox) {
-                    messageBox.innerText = "Failed to send message. Try again.";
-                    messageBox.style.color = "red";
-                    messageBox.classList.add("show");
-                }
+                showMessage("Failed to send message. Please try again or email directly.", "red");
             })
             .finally(function () {
                 if (submitButton) {
